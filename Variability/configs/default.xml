@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="GymMassive"/>
+	<feature automatic="selected" name="Notifications"/>
+	<feature automatic="selected" name="Email"/>
+	<feature automatic="selected" name="VisualAlerts"/>
+	<feature automatic="selected" name="Training"/>
+	<feature automatic="selected" name="ConsultRoutines"/>
+	<feature automatic="selected" name="Authentication"/>
+	<feature automatic="selected" name="Login"/>
+	<feature automatic="selected" name="Register"/>
+	<feature automatic="selected" name="Booking"/>
+	<feature manual="selected" name="BookAClass"/>
+	<feature automatic="unselected" name="ManageBookings"/>
+	<feature automatic="selected" name="DTraining"/>
+	<feature automatic="unselected" name="ManageRoutines"/>
+	<feature automatic="unselected" name="RoutineTracking"/>
+	<feature manual="selected" name="MyRoutines"/>
+	<feature automatic="selected" name="Suscriptions"/>
+	<feature automatic="unselected" name="ManagePlans"/>
+	<feature manual="selected" name="SuscribeToPlan"/>
+	<feature automatic="unselected" name="Employees"/>
+	<feature automatic="unselected" name="ManageEmployees"/>
+	<feature automatic="unselected" name="ConsultEmployees"/>
+</configuration>
