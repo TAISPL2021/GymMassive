@@ -1,0 +1,43 @@
+.dex-NavBar{
+  &-toolbar{
+    color: white;
+    &-row{
+      background-color: black;
+    }
+  }
+
+  &-MenuSpacer{
+    width: 90%;
+  }
+
+  &-UserIcon{
+    transform: scale(2);
+  }
+}
+
+.drawer-container {
+  position: absolute !important;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+.mat-drawer {
+  width: 250px;
+}
+
+.mat-list-item-content{
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: inherit;
+  cursor: pointer;
+
+  &:hover{
+    background: rgba(0, 0, 0, 0.04);
+  }
+}

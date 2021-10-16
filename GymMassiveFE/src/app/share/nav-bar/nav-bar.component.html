@@ -1,0 +1,39 @@
+<mat-toolbar class="dex-NavBar-toolbar">
+  <mat-toolbar-row class="dex-NavBar-toolbar-row">
+    <button mat-icon-button>
+      <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+    </button>
+    <h1>Gym Massive</h1>
+    <span class="dex-NavBar-MenuSpacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon class="dex-NavBar-UserIcon">account_circle</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/login']" (click)="deleteToken()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Cerrar Sesión</span>
+  </button>
+</mat-menu>
+
+<mat-drawer-container class="drawer-container" [hasBackdrop]="false">
+  <mat-drawer #drawer mode="side">
+    <ng-container *ngFor="let route of routes">
+      <ng-container *ngIf="route.children == null; then individual; else multiple"></ng-container>
+
+      <ng-template #individual>
+        <dex-expansion-item [route]="route"></dex-expansion-item>
+      </ng-template>
+
+      <ng-template #multiple>
+        <dex-expansion-panel-nav [routes]="route"></dex-expansion-panel-nav>
+      </ng-template>
+    </ng-container>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content select="router-outlet"></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>
