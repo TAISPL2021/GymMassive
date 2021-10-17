@@ -1,0 +1,11 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{routes.name}} </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+      <dex-expansion-item *ngFor="let route of routes.children" [route]="route"></dex-expansion-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>

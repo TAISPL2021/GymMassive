@@ -1,7 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '~@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +20,9 @@ $GymMassiveFE-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$GymMassiveFE-theme: mat.define-light-theme((
-  color: (
-    primary: $GymMassiveFE-primary,
-    accent: $GymMassiveFE-accent,
-    warn: $GymMassiveFE-warn,
-  )
-));
+$GymMassiveFE-theme: mat.define-light-theme(
+	 (color: (primary: $GymMassiveFE-primary, accent: $GymMassiveFE-accent, warn: $GymMassiveFE-warn))
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -35,5 +31,41 @@ $GymMassiveFE-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.form {
+	width: 100%;
+
+	&-full-width {
+		width: 100%;
+	}
+
+	&-half-width {
+    width: 50%;
+		&:first-child {
+			margin-right: 10px;
+      width: 48%;
+		}
+	}
+
+	&-wrapper {
+		background-color: #ebecf0;
+		height: 100%;
+		width: 100%;
+		padding: 0 18px;
+	}
+
+	& > h1 {
+		font-family: 'Fjalla One', sans-serif;
+		font-size: 60px;
+		margin-top: 30px;
+		text-align: center;
+		margin-bottom: 80px;
+	}
+}

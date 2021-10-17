@@ -1,0 +1,31 @@
+<div class="container">
+    <img
+        className="container-image"
+        src="../../../assets/login_gym.jpg"
+        alt="gym"
+      >
+
+    <div class="form-wrapper">
+
+        <form class="form">
+            <h1>LOGIN</h1>
+            <mat-form-field class="form-full-width" appearance="outline" floatLabel="always">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="email@email.com" autocomplete="off">
+            </mat-form-field>
+          
+            <mat-form-field class="form-full-width" appearance="outline" floatLabel="always">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password">
+              </mat-form-field>
+          </form>
+          <div class="button-wrapper">
+              <a [routerLink]="['/login/register']">Create an Account</a>
+              <button mat-flat-button color="primary">Login</button>
+          </div>
+          <div class="img-wrapper">
+              <img src="../../../assets/wmlogo.png">
+          </div>
+
+    </div>
+</div>

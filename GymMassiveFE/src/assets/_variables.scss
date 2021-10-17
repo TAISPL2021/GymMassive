@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+$orange: #f28241;
+$gold: #d99441;
+$strong-gold: #efb810;
+$yellow: #f2c84b;
+$white-transparent: #FFFFFFDE;
+$gray: #ebecf0;
+
+$title-font: 'Fjalla One', sans-serif;
+
+:export {
+	$orange: $orange;
+	$gold: $gold;
+	$yellow: $yellow;
+	$white-transparent: $white-transparent;
+	$gray: $gray;
+	$title-font: $title-font;
+}
