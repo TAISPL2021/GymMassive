@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.serv;
+package com.spl.gymmassive.services;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -14,12 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.spl.gymmassive.exc.AuthenticationException;
-import com.spl.gymmassive.exc.UserNotFoundException;
-import com.spl.gymmassive.mod.User;
-import com.spl.gymmassive.mod.req.LoginRequest;
-import com.spl.gymmassive.mod.res.TokenResponse;
-import com.spl.gymmassive.rep.UserRepository;
+import com.spl.gymmassive.exception.AuthenticationException;
+import com.spl.gymmassive.exception.UserNotFoundException;
+import com.spl.gymmassive.models.User;
+import com.spl.gymmassive.models.request.LoginRequest;
+import com.spl.gymmassive.models.response.TokenResponse;
+import com.spl.gymmassive.repositories.UserRepository;
 import com.spl.gymmassive.util.AuthenticationUtil;
 import com.spl.gymmassive.util.JWTUtil;
 

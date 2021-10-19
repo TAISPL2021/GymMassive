@@ -1,4 +1,4 @@
-package com.spl.gymmassive.cont;
+package com.spl.gymmassive.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

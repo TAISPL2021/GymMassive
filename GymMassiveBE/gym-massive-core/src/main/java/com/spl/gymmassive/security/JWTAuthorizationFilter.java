@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spl.gymmassive.mod.res.ErrorResponse;
+import com.spl.gymmassive.models.response.ErrorResponse;
 import com.spl.gymmassive.util.JWTUtil;
 
 import io.jsonwebtoken.Claims;

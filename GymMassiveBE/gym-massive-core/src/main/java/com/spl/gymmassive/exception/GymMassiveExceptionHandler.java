@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.exc;
+package com.spl.gymmassive.exception;
 
 //import javax.persistence.EntityNotFoundException;
 
@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.spl.gymmassive.mod.res.ErrorResponse;
+import com.spl.gymmassive.models.response.ErrorResponse;
 
 /**
  * @author brayan.guerrero

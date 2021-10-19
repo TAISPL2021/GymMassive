@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.mod.res;
+package com.spl.gymmassive.models.response;
 
 /**
  * @author brayan.guerrero

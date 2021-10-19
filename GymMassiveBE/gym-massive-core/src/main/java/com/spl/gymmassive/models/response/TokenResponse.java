@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.mod.req;
+package com.spl.gymmassive.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,9 +18,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequest {
+public class TokenResponse {
 
 	private String email;
-	private String password;
+	private String token;
+	private String refreshToken;
 
 }

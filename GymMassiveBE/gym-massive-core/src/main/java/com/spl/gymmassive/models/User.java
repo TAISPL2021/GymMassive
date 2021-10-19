@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.mod;
+package com.spl.gymmassive.models;
 
 //import javax.persistence.Id;
 

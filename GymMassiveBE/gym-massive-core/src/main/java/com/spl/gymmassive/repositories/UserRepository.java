@@ -1,10 +1,10 @@
-package com.spl.gymmassive.rep;
+package com.spl.gymmassive.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.spl.gymmassive.mod.User;
+import com.spl.gymmassive.models.User;
 
 /**
  * 

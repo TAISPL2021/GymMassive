@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.exc;
+package com.spl.gymmassive.exception;
 
 /**
  * @author brayan.guerrero

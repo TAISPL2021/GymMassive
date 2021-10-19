@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spl.gymmassive.cont;
+package com.spl.gymmassive.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spl.gymmassive.mod.req.LoginRequest;
-import com.spl.gymmassive.mod.res.TokenResponse;
-import com.spl.gymmassive.serv.AuthenticationService;
+import com.spl.gymmassive.models.request.LoginRequest;
+import com.spl.gymmassive.models.response.TokenResponse;
+import com.spl.gymmassive.services.AuthenticationService;
 
 /**
  * @author brayan.guerrero
