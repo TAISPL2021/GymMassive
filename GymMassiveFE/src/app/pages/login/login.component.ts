@@ -26,14 +26,13 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.email, this.password).subscribe(
       result => {
         let loginResponse: LoginResponse = result;
-        console.log(loginResponse);
         sessionStorage.setItem("email", loginResponse.email);
         sessionStorage.setItem("token", loginResponse.token);
         sessionStorage.setItem("refreshToken", loginResponse.refreshToken);
         this.router.navigate(['home']);
       },
       error => {
-
+        console.log(error);
       }
     );
   }
