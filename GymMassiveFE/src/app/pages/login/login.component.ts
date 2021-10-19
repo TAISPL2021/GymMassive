@@ -11,7 +11,7 @@ import { LoginResponse } from './model/LoginResponse';
 })
 export class LoginComponent implements OnInit {
 
-  email: any = "";
+  public email: any = "";
   public password: any = "";
 
   constructor(
@@ -25,8 +25,11 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginService.login(this.email, this.password).subscribe(
       result => {
-        var loginResponse: LoginResponse = result;
-        console.log(loginResponse)
+        let loginResponse: LoginResponse = result;
+        console.log(loginResponse);
+        sessionStorage.setItem("email", loginResponse.email);
+        sessionStorage.setItem("token", loginResponse.token);
+        sessionStorage.setItem("refreshToken", loginResponse.refreshToken);
         this.router.navigate(['home']);
       },
       error => {
