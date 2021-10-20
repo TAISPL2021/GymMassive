@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ConsultRoutinesComponent } from './consult-routines/consult-routines.component';
 import { TrainingRoutingModule } from './training-routing.module';
 import { RoutinesService } from 'src/app/services';
-import { HttpClientModule } from '@angular/common/http';
 import { RoutineCardComponent } from './consult-routines/routine-card/routine-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-	declarations: [ ConsultRoutinesComponent, RoutineCardComponent ],
+	declarations: [ConsultRoutinesComponent, RoutineCardComponent],
 	imports: [
 		MatCardModule,
 		ReactiveFormsModule,
@@ -20,9 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 		MatInputModule,
 		MatFormFieldModule,
 		CommonModule,
-		TrainingRoutingModule,
-		HttpClientModule
+		TrainingRoutingModule
 	],
-	providers: [ RoutinesService ]
+	providers: [RoutinesService]
 })
-export class TrainingModule {}
+export class TrainingModule { }
