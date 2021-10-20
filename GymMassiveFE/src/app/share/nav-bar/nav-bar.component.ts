@@ -16,7 +16,6 @@ export class NavBarComponent implements OnInit {
 	drawer: any;
 
 	ngOnInit() {
-		debugger
 		this.drawer.toggle();
 	}
 
