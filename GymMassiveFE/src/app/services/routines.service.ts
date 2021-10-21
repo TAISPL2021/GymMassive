@@ -15,6 +15,6 @@ export class RoutinesService extends Services {
 	}
 
 	getAllRoutines(): Observable<Routine[]> {
-		return this._http.get<Routine[]>(environment.url + '/routine', { withCredentials: true, headers: this.GetHttpHeaders() });
+		return this._http.get<Routine[]>(environment.url + '/routine', { headers: this.GetHttpHeaders() });
 	}
 }
