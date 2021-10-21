@@ -39,12 +39,12 @@ public class RoutineController {
 	}
 
 	@RequestMapping(value = "/routine/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Routine> findById(@PathVariable String id) {
+	public ResponseEntity<Routine> findRoutineById(@PathVariable String id) {
 		return ResponseEntity.status(HttpStatus.OK).body(routineService.findById(id));
 	}
 
 	@RequestMapping(value = "/routine", method = RequestMethod.PUT)
-	public ResponseEntity<Routine> editNews(@RequestBody Routine routine) {
+	public ResponseEntity<Routine> editRoutine(@RequestBody Routine routine) {
 		Routine editedRoutine = routineService.editRoutine(routine);
 		if (editedRoutine != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(routineService.editRoutine(routine));
@@ -54,7 +54,7 @@ public class RoutineController {
 	}
 
 	@RequestMapping(value = "/routine", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> findAllNews(@RequestBody String id) {
+	public ResponseEntity<Boolean> deleteRoutine(@RequestBody String id) {
 		boolean deleted = routineService.deleteRoutine(id);
 		if (deleted) {
 			return ResponseEntity.status(HttpStatus.OK).body(routineService.deleteRoutine(id));
