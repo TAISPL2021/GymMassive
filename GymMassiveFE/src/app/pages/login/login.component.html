@@ -8,19 +8,19 @@
             <mat-form-field class="form-full-width" appearance="outline" floatLabel="always">
                 <mat-label>Email</mat-label>
                 <input  formControlName="email" matInput type="text" placeholder="email@email.com" autocomplete="off" >
-              <mat-error *ngIf="formGroup.controls.email.hasError('required')">Field Required</mat-error>
+              <mat-error *ngIf="formGroup.controls.email.hasError('required')">Campo Requerido</mat-error>
             </mat-form-field>
 
             <mat-form-field class="form-full-width" appearance="outline" floatLabel="always">
-                <mat-label>Password</mat-label>
-                <input  formControlName="password"  matInput type="password" placeholder="Password" >
-              <mat-error *ngIf="formGroup.controls.password.hasError('required')">Field Required</mat-error>
+                <mat-label>Contraseña</mat-label>
+                <input  formControlName="password"  matInput type="password" placeholder="Contraseña" >
+              <mat-error *ngIf="formGroup.controls.password.hasError('required')">Campo Requerido</mat-error>
 
             </mat-form-field>
         </form>
         <div class="button-wrapper">
-            <a [routerLink]="['/login/register']">Create an Account</a>
-            <button mat-flat-button color="primary" (click)="login()">Login</button>
+            <a [routerLink]="['/login/register']">Crear una cuenta</a>
+            <button mat-flat-button color="primary" (click)="login()">Iniciar Sesión</button>
         </div>
         <div class="img-wrapper">
             <img src="../../../assets/wmlogo.png">
