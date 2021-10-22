@@ -19,4 +19,8 @@
 .mat-card {
 	min-height: 350px;
 	min-width: 330px;
+
+	.mat-card-image {
+		min-height: 205px;
+	}
 }
