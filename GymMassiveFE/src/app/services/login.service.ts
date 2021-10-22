@@ -1,21 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { LoginRequest } from '../models/LoginRequest';
-
-const httpOptions = {
-	headers: new HttpHeaders({
-		'Content-Type': 'application/json',
-		Accept: 'application/json'
-	})
-};
+import { LoginResponse } from 'src/app/models';
+import { Services } from './services.service';
 
 @Injectable()
-export class LoginService {
-	constructor(public _http: HttpClient) {}
+export class LoginService extends Services {
 
-	login(email: string, password: string) {
+	constructor(public _http: HttpClient) {
+		super()
+	}
+
+	login(email: string, password: string): Observable<any> {
 		var loginRequest: LoginRequest = { email, password };
-		return this._http.post<any>(environment.url + '/auth/login', loginRequest, httpOptions);
+		return this._http.post<any>(environment.url + '/auth/login', loginRequest, { headers: this.GetHttpHeaders() });
 	}
 }

@@ -52,11 +52,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 				if (JWTUtil.existsJWTToken(request, response)) {
 					String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");
 					Claims claims = JWTUtil.validateToken(jwtToken);
-//					if (claims.get("authorities") != null) {
-//						AuthenticationUtil.setUpSpringAuthentication(claims);
-//					} else {
-//						SecurityContextHolder.clearContext();
-//					}
 				} else {
 					SecurityContextHolder.clearContext();
 					objectMapper = new ObjectMapper();

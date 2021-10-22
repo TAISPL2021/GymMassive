@@ -16,7 +16,6 @@ import com.spl.gymmassive.models.Routine;
 import com.spl.gymmassive.services.RoutineService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class RoutineController {
 	@Autowired
 	private RoutineService routineService;
