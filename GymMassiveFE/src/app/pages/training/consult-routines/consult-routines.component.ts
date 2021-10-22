@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { RoutinesService } from 'src/app/services';
-import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
+import { RoutinesService } from 'src/app/services';
 
 @Component({
 	selector: 'app-consult-routines',
@@ -10,27 +10,39 @@ import { Subject } from 'rxjs';
 	styleUrls: [ './consult-routines.component.scss' ]
 })
 export class ConsultRoutinesComponent implements OnInit, OnDestroy {
-	public routines: any[] = [];
-	private originalRoutines: any[] = [];
+	loading = true;
+	routines: any[] = [];
 	searchControl = new FormControl();
-	componentDestroyed$ = new Subject();
+
+	private originalRoutines: any[] = [];
+	private componentDestroyed$ = new Subject();
+
 	constructor(private routinesService: RoutinesService) {}
 
 	ngOnInit(): void {
-		this.routinesService.getAllRoutines().subscribe((res) => {
-			this.routines = res;
-			this.originalRoutines = Object.assign([], res);
-		});
-
-		this.searchControl.valueChanges.pipe(debounceTime(500), takeUntil(this.componentDestroyed$)).subscribe((c) => {
-			this.routines = this.originalRoutines.filter(
-				(f) => f.exercise.toLowerCase().includes(c) || f.group.toLowerCase().includes(c)
-			);
-		});
+		this.getRoutines();
+		this.listenSearch();
 	}
 
 	ngOnDestroy(): void {
 		this.componentDestroyed$.next();
 		this.componentDestroyed$.complete();
+	}
+
+	private getRoutines() {
+		this.loading = true;
+		this.routinesService.getAllRoutines().subscribe((res) => {
+			this.routines = res;
+			this.originalRoutines = Object.assign([], res);
+			this.loading = false;
+		});
+	}
+
+	private listenSearch() {
+		this.searchControl.valueChanges.pipe(debounceTime(500), takeUntil(this.componentDestroyed$)).subscribe((c) => {
+			this.routines = this.originalRoutines.filter(
+				(f) => f.exercise.toLowerCase().includes(c) || f.group.toLowerCase().includes(c)
+			);
+		});
 	}
 }

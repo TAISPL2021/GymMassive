@@ -1,26 +1,28 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConsultRoutinesComponent } from './consult-routines/consult-routines.component';
-import { TrainingRoutingModule } from './training-routing.module';
-import { RoutinesService } from 'src/app/services';
-import { RoutineCardComponent } from './consult-routines/routine-card/routine-card.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RoutinesService } from 'src/app/services';
+import { ConsultRoutinesComponent } from './consult-routines/consult-routines.component';
+import { RoutineCardComponent } from './consult-routines/routine-card/routine-card.component';
+import { TrainingRoutingModule } from './training-routing.module';
 
 @NgModule({
-	declarations: [ConsultRoutinesComponent, RoutineCardComponent],
+	declarations: [ ConsultRoutinesComponent, RoutineCardComponent ],
 	imports: [
+		CommonModule,
 		MatCardModule,
-		ReactiveFormsModule,
+		MatFormFieldModule,
 		MatIconModule,
 		MatInputModule,
-		MatFormFieldModule,
-		CommonModule,
+		MatProgressSpinnerModule,
+		ReactiveFormsModule,
 		TrainingRoutingModule
 	],
-	providers: [RoutinesService]
+	providers: [ RoutinesService ]
 })
-export class TrainingModule { }
+export class TrainingModule {}
