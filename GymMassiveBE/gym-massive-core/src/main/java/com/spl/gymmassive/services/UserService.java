@@ -18,12 +18,12 @@ public class UserService {
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-	
+
 	public List<User> findAllEmployees() {
 		return userRepository.findAll().stream()
-		.filter(c -> c.getType().equals("Employee"))
-		.collect(Collectors.toList());
-		
+				.filter(c -> c.getType().equals("Entrenador") || c.getType().equals("Administrador"))
+				.collect(Collectors.toList());
+
 	}
 
 	public User findById(String userId) {
