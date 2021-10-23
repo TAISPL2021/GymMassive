@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -34,9 +35,10 @@ import { EmployeeRoutingModule } from './employee-routing.module';
 		MatInputModule,
 		MatPaginatorModule,
 		MatProgressSpinnerModule,
+		MatSnackBarModule,
 		MatSelectModule,
 		MatTableModule,
-		ReactiveFormsModule,
+		ReactiveFormsModule
 	]
 })
 export class EmployeesModule {}

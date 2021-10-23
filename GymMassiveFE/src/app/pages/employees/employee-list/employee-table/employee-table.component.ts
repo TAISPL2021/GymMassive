@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/models';
@@ -28,7 +29,7 @@ export class EmployeeTableComponent implements OnInit {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
-	constructor(private userService: UserService, public dialog: MatDialog) {}
+	constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar) {}
 
 	ngOnInit(): void {
 		this.getEmployees();
@@ -43,7 +44,7 @@ export class EmployeeTableComponent implements OnInit {
 		}
 	}
 
-	createEmployee() {
+	createEmployee(): void {
 		const dialogRef = this.dialog.open(CreateEmployeeComponent);
 
 		dialogRef.afterClosed().subscribe((result) => {
@@ -53,6 +54,20 @@ export class EmployeeTableComponent implements OnInit {
 				},
 				(error) => {}
 			);
+		});
+	}
+
+	deleteEmployee(id: string): void {
+		this.userService.deleteEmployee(id).subscribe((res) => {
+			this.openSnackBar('Empleado Eliminado Satisfactoriamente');
+			this.getEmployees();
+		});
+	}
+
+	openSnackBar(message: string): void {
+		this._snackBar.open(message, 'X', {
+			horizontalPosition: 'end',
+			verticalPosition: 'top'
 		});
 	}
 

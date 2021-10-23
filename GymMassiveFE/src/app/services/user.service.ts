@@ -19,6 +19,13 @@ export class UserService extends Services {
 		return this._http.post<User>(this.BASE_URL + '/create', user, { headers: this.GetHttpHeaders() });
 	}
 
+	deleteEmployee(id: string): Observable<boolean> {
+		return this._http.delete<boolean>(this.BASE_URL + '/delete', {
+			params: { userId: id },
+			headers: this.GetHttpHeaders()
+		});
+	}
+
 	getEmployees(): Observable<User[]> {
 		return this._http.get<User[]>(this.BASE_URL + '/findEmployees', { headers: this.GetHttpHeaders() });
 	}
