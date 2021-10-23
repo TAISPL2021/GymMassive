@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/models';
 import { UserService } from 'src/app/services';
+import { CreateEmployeeComponent } from '../../create-employee/create-employee.component';
 
 @Component({
 	selector: 'app-employee-table',
@@ -26,14 +28,10 @@ export class EmployeeTableComponent implements OnInit {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 
-	constructor(private userService: UserService) {}
+	constructor(private userService: UserService, public dialog: MatDialog) {}
 
 	ngOnInit(): void {
-		this.userService.getEmployees().subscribe((res) => {
-			this.dataSource = new MatTableDataSource(res);
-			this.dataSource.paginator = this.paginator;
-			this.dataSource.sort = this.sort;
-		});
+		this.getEmployees();
 	}
 
 	applyFilter(event: Event) {
@@ -43,5 +41,26 @@ export class EmployeeTableComponent implements OnInit {
 		if (this.dataSource.paginator) {
 			this.dataSource.paginator.firstPage();
 		}
+	}
+
+	createEmployee() {
+		const dialogRef = this.dialog.open(CreateEmployeeComponent);
+
+		dialogRef.afterClosed().subscribe((result) => {
+			this.userService.createEmployee(result).subscribe(
+				(res) => {
+					this.getEmployees();
+				},
+				(error) => {}
+			);
+		});
+	}
+
+	private getEmployees() {
+		this.userService.getEmployees().subscribe((res) => {
+			this.dataSource = new MatTableDataSource(res);
+			this.dataSource.paginator = this.paginator;
+			this.dataSource.sort = this.sort;
+		});
 	}
 }

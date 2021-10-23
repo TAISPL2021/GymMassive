@@ -1,5 +1,5 @@
 <div class="table-filter">
-    <button mat-flat-button color="primary">Crear Empleado</button>
+    <button mat-flat-button color="primary" (click)="createEmployee()">Crear Empleado</button>
     <mat-form-field appearance="outline">
         <mat-icon matSuffix>search</mat-icon>
         <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" autocomplete="off" #input>
