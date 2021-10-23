@@ -18,9 +18,10 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeTableComponent } from './employee-list/employee-table/employee-table.component';
 import { EmployeeRoutingModule } from './employee-routing.module';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
-	declarations: [ EmployeeListComponent, EmployeeTableComponent, CreateEmployeeComponent ],
+	declarations: [ EmployeeListComponent, EmployeeTableComponent, CreateEmployeeComponent, UpdateEmployeeComponent ],
 	imports: [
 		CommonModule,
 		EmployeeRoutingModule,

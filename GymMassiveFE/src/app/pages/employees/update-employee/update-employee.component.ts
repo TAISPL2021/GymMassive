@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models';
+import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 
 @Component({
-	selector: 'app-create-employee',
-	templateUrl: './create-employee.component.html',
-	styleUrls: [ './create-employee.component.scss' ]
+	selector: 'app-update-employee',
+	templateUrl: './update-employee.component.html',
+	styleUrls: [ './update-employee.component.scss' ]
 })
-export class CreateEmployeeComponent {
+export class UpdateEmployeeComponent implements OnInit {
 	hide = true;
 	formGroup = new FormGroup({
+		id: new FormControl(null, Validators.required),
 		name: new FormControl(null, Validators.required),
 		last_name: new FormControl(null, Validators.required),
 		birthday: new FormControl(null, Validators.required),
@@ -21,9 +23,24 @@ export class CreateEmployeeComponent {
 		password: new FormControl(null, Validators.required),
 		employee_type: new FormControl(null, Validators.required)
 	});
-	constructor(public dialogRef: MatDialogRef<CreateEmployeeComponent>) {}
+	constructor(public dialogRef: MatDialogRef<UpdateEmployeeComponent>, @Inject(MAT_DIALOG_DATA) public data: User) {}
 
-	createEmployee() {
+	ngOnInit(): void {
+		this.formGroup.patchValue({
+			id: this.data.id,
+			name: this.data.name,
+			last_name: this.data.lastName,
+			birthday: this.data.birthday,
+			document_type: this.data.documentType,
+			document_number: this.data.documentNumber,
+			phone_number: this.data.phone,
+			email: this.data.email,
+			password: this.data.password,
+			employee_type: this.data.type
+		});
+	}
+
+	updateEmployee() {
 		if (this.formGroup.valid) {
 			const user = this.createRequest();
 			this.dialogRef.close(user);
@@ -32,6 +49,7 @@ export class CreateEmployeeComponent {
 
 	private createRequest(): User {
 		const {
+			id,
 			name,
 			last_name,
 			birthday,
@@ -43,6 +61,7 @@ export class CreateEmployeeComponent {
 			employee_type
 		} = this.formGroup.getRawValue();
 		return {
+			id,
 			name,
 			lastName: last_name,
 			birthday,

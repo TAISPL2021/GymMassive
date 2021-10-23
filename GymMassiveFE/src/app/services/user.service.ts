@@ -19,6 +19,10 @@ export class UserService extends Services {
 		return this._http.post<User>(this.BASE_URL + '/create', user, { headers: this.GetHttpHeaders() });
 	}
 
+	updateEmployee(user: User): Observable<User> {
+		return this._http.put<User>(this.BASE_URL + '/edit', user, { headers: this.GetHttpHeaders() });
+	}
+
 	deleteEmployee(id: string): Observable<boolean> {
 		return this._http.delete<boolean>(this.BASE_URL + '/delete', {
 			params: { userId: id },

@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/models';
 import { UserService } from 'src/app/services';
 import { CreateEmployeeComponent } from '../../create-employee/create-employee.component';
+import { UpdateEmployeeComponent } from '../../update-employee/update-employee.component';
 
 @Component({
 	selector: 'app-employee-table',
@@ -49,6 +50,19 @@ export class EmployeeTableComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe((result) => {
 			this.userService.createEmployee(result).subscribe(
+				(res) => {
+					this.getEmployees();
+				},
+				(error) => {}
+			);
+		});
+	}
+
+	updateEmployee(employee: User): void {
+		const dialogRef = this.dialog.open(UpdateEmployeeComponent, { data: { ...employee } });
+
+		dialogRef.afterClosed().subscribe((result) => {
+			this.userService.updateEmployee(result).subscribe(
 				(res) => {
 					this.getEmployees();
 				},

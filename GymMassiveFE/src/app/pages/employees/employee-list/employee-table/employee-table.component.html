@@ -46,7 +46,7 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
             <td mat-cell *matCellDef="let row">
-                <mat-icon class="table-actions" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                <mat-icon class="table-actions" aria-hidden="false" aria-label="Example home icon" (click)="updateEmployee(row)">edit</mat-icon>
                 <mat-icon class="table-actions" aria-hidden="false" aria-label="Example home icon" (click)="deleteEmployee(row.id)">delete</mat-icon>
             </td>
         </ng-container>
