@@ -44,6 +44,19 @@ public class User {
 		this.password = password;
 		this.type = type;
 	}
+	public void cloneUser(String id, String name, String lastName, String birthday, String documentType, String documentNumber,
+			String phone, String email, String password, String type) {
+		this.setId(id);
+		this.setName(name); 
+		this.setLastName(lastName);
+		this.setBirthday(birthday);
+		this.setDocumentType(documentType);
+		this.setDocumentNumber(documentNumber);
+		this.setPhone(phone);
+		this.setEmail(email);
+		this.setPassword(password);
+		this.setType(type);
+	}
 
 	public String getId() {
 		return id;

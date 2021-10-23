@@ -39,7 +39,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 	private static final String HEADER = "Authorization";
 	private static final String PREFIX = "Bearer ";
 	private static final List<String> URLS_LIST_WITH_OUT_TOKEN_HEADER = new ArrayList<>(
-			Arrays.asList("/healthcheck", "/auth/login"));
+			Arrays.asList("/healthcheck", "/auth/login","/user/create"));
 
 	private ObjectMapper objectMapper;
 

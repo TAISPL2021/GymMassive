@@ -9,7 +9,7 @@ import { NavigationRoute } from 'src/app/interfaces/navigation-route';
 })
 export class HomeComponent implements OnInit {
 	routes: NavigationRoute[] = [
-		{ path: 'training', name: 'Training', icon: 'widgets' },
+		{ path: 'training', name: 'Consulta de Ejercicios', icon: 'widgets' },
 		{
 			path: '',
 			name: 'Administrativo',
