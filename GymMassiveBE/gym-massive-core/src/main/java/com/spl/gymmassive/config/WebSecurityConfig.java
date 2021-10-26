@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		configuration.applyPermitDefaultValues();
 		configuration.addAllowedMethod("DELETE");
 		configuration.addAllowedMethod("PATCH");
+		configuration.addAllowedMethod("PUT");
 		configuration.addAllowedHeader("*");
 		configuration.setAllowCredentials(true);
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
