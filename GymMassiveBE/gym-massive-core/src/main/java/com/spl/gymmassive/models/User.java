@@ -5,6 +5,7 @@ package com.spl.gymmassive.models;
 
 //import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -21,6 +22,7 @@ public class User {
 	private String documentType;
 	private String documentNumber;
 	private String phone;
+	@Indexed(unique = true)
 	private String email;
 	private String password;
 	private String type;
