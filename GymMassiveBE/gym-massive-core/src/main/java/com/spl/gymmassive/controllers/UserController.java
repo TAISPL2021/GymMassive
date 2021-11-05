@@ -40,8 +40,13 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/findEmployees")
-	public ResponseEntity<List<User>> findEmployees(){
+	public ResponseEntity<List<User>> findEmployees() {
 		return ResponseEntity.ok(userService.findAllEmployees());
+	}
+
+	@GetMapping(value = "/findClients")
+	public ResponseEntity<List<User>> findClients() {
+		return ResponseEntity.ok(userService.findAllClients());
 	}
 
 }
