@@ -1,4 +1,9 @@
-
 *.class
 *.properties
 *.properties
+GymMassiveBE/gym-massive-core/.classpath
+GymMassiveBE/gym-massive-core/.settings/org.eclipse.core.resources.prefs
+GymMassiveBE/gym-massive-core/.settings/org.eclipse.jdt.apt.core.prefs
+GymMassiveBE/gym-massive-core/.settings/org.eclipse.jdt.core.prefs
+GymMassiveBE/gym-massive-core/target/classes/META-INF/MANIFEST.MF
+GymMassiveBE/gym-massive-core/target/classes/META-INF/maven/com.spl.gymmassive/gym-massive-core/pom.properties
