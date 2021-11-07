@@ -22,7 +22,7 @@ import com.spl.gymmassive.services.AuthenticationService;
  *
  */
 @RestController
-@CrossOrigin(origins = "*", allowCredentials = "true")
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/auth")
 public class AuthenticationController {
 

@@ -1,48 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
-import { RoutinesService } from 'src/app/services';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-consult-routines',
-	templateUrl: './consult-routines.component.html',
-	styleUrls: [ './consult-routines.component.scss' ]
+  selector: 'app-consult-routines',
+  templateUrl: './consult-routines.component.html',
+  styleUrls: ['./consult-routines.component.scss']
 })
-export class ConsultRoutinesComponent implements OnInit, OnDestroy {
-	loading = true;
-	routines: any[] = [];
-	searchControl = new FormControl();
+export class ConsultRoutinesComponent implements OnInit {
 
-	private originalRoutines: any[] = [];
-	private componentDestroyed$ = new Subject();
+  constructor() { }
 
-	constructor(private routinesService: RoutinesService) {}
+  ngOnInit(): void {
+  }
 
-	ngOnInit(): void {
-		this.getRoutines();
-		this.listenSearch();
-	}
-
-	ngOnDestroy(): void {
-		this.componentDestroyed$.next();
-		this.componentDestroyed$.complete();
-	}
-
-	private getRoutines() {
-		this.loading = true;
-			this.routinesService.getAllRoutines().subscribe((res) => {
-				this.routines = res;
-				this.originalRoutines = Object.assign([], res);
-				this.loading = false;
-			});
-	}
-
-	private listenSearch() {
-		this.searchControl.valueChanges.pipe(debounceTime(500), takeUntil(this.componentDestroyed$)).subscribe((c) => {
-			this.routines = this.originalRoutines.filter(
-				(f) => f.exercise.toLowerCase().includes(c) || f.group.toLowerCase().includes(c)
-			);
-		});
-	}
 }

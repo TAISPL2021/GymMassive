@@ -39,7 +39,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 	private static final String HEADER = "Authorization";
 	private static final String PREFIX = "Bearer ";
 	private static final List<String> URLS_LIST_WITH_OUT_TOKEN_HEADER = new ArrayList<>(
-			Arrays.asList("/healthcheck", "/auth/login","/user/create"));
+			Arrays.asList("/healthcheck", "/auth/login"));
 
 	private ObjectMapper objectMapper;
 
@@ -52,6 +52,11 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 				if (JWTUtil.existsJWTToken(request, response)) {
 					String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");
 					Claims claims = JWTUtil.validateToken(jwtToken);
+//					if (claims.get("authorities") != null) {
+//						AuthenticationUtil.setUpSpringAuthentication(claims);
+//					} else {
+//						SecurityContextHolder.clearContext();
+//					}
 				} else {
 					SecurityContextHolder.clearContext();
 					objectMapper = new ObjectMapper();

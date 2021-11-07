@@ -5,7 +5,6 @@ package com.spl.gymmassive.models;
 
 //import javax.persistence.Id;
 
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -22,7 +21,6 @@ public class User {
 	private String documentType;
 	private String documentNumber;
 	private String phone;
-	@Indexed(unique = true)
 	private String email;
 	private String password;
 	private String type;
@@ -45,19 +43,6 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.type = type;
-	}
-	public void cloneUser(String id, String name, String lastName, String birthday, String documentType, String documentNumber,
-			String phone, String email, String password, String type) {
-		this.setId(id);
-		this.setName(name); 
-		this.setLastName(lastName);
-		this.setBirthday(birthday);
-		this.setDocumentType(documentType);
-		this.setDocumentNumber(documentNumber);
-		this.setPhone(phone);
-		this.setEmail(email);
-		this.setPassword(password);
-		this.setType(type);
 	}
 
 	public String getId() {

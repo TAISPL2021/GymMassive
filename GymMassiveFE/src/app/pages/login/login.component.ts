@@ -24,7 +24,6 @@ export class LoginComponent {
 			this.loginService.login(email, password).subscribe(
 				(result) => {
 					let loginResponse: LoginResponse = result;
-					sessionStorage.setItem('userId', loginResponse.userId);
 					sessionStorage.setItem('email', loginResponse.email);
 					sessionStorage.setItem('token', loginResponse.token);
 					sessionStorage.setItem('refreshToken', loginResponse.refreshToken);

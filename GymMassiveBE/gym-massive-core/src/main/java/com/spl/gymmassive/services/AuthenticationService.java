@@ -51,7 +51,7 @@ public class AuthenticationService {
 
 		AuthenticationUtil.setUpSpringAuthentication(JWTUtil.validateToken(token.replace("Bearer ", "")));
 
-		return new TokenResponse(user.getId(), loginRequest.getEmail(), token, refreshToken);
+		return new TokenResponse(loginRequest.getEmail(), token, refreshToken);
 	}
 
 	public void logout() {
@@ -70,7 +70,7 @@ public class AuthenticationService {
 
 		String newToken = JWTUtil.getJWTToken(email, user.getType(), false, nowDate);
 
-		return new TokenResponse(user.getId(), email, newToken, refreshToken);
+		return new TokenResponse(email, newToken, refreshToken);
 	}
 
 }

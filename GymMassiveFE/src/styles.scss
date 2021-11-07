@@ -47,17 +47,10 @@ body {
 	}
 
 	&-half-width {
-		width: 50%;
+    width: 50%;
 		&:first-child {
 			margin-right: 10px;
-			width: 48%;
-		}
-	}
-	&-cuarter-width {
-		width: 30%;
-		&:not(:last-child) {
-			margin-right: 10px;
-			width: 28%;
+      width: 48%;
 		}
 	}
 
