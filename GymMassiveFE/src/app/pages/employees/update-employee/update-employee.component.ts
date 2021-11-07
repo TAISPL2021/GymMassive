@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models';
-import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 
 @Component({
 	selector: 'app-update-employee',

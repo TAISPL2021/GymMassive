@@ -31,11 +31,11 @@ export class ConsultRoutinesComponent implements OnInit, OnDestroy {
 
 	private getRoutines() {
 		this.loading = true;
-		this.routinesService.getAllRoutines().subscribe((res) => {
-			this.routines = res;
-			this.originalRoutines = Object.assign([], res);
-			this.loading = false;
-		});
+			this.routinesService.getAllRoutines().subscribe((res) => {
+				this.routines = res;
+				this.originalRoutines = Object.assign([], res);
+				this.loading = false;
+			});
 	}
 
 	private listenSearch() {
