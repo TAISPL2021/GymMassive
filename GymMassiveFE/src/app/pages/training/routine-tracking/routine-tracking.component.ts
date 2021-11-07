@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Routine } from 'src/app/models';
 import { UserTrainingService } from 'src/app/services/userTraining.service';
 
 @Component({
@@ -8,12 +9,35 @@ import { UserTrainingService } from 'src/app/services/userTraining.service';
 })
 export class RoutineTrackingComponent implements OnInit {
 	userId: string;
+	loading: boolean;
+	routines: Routine[] = [];
 	constructor(private userTrainingService: UserTrainingService) {}
+	get dayRoutineKeys() {
+		return Object.keys(this.dayRoutine);
+	}
+	dayRoutine = {
+		Lunes: [],
+		Martes: [],
+		Miercoles: [],
+		Jueves: [],
+		Viernes: [],
+		Sabado: [],
+		Domingo: []
+	};
 
 	ngOnInit(): void {
+		this.initUserRoutines();
+	}
+
+	private initUserRoutines() {
+		this.loading = true;
 		this.userId = sessionStorage.getItem('userId');
 		this.userTrainingService.getUserRoutine(this.userId).subscribe((res) => {
-			console.log(res);
+			this.loading = false;
+			Object.keys(this.dayRoutine).forEach((d) => {
+				this.dayRoutine[d] = res.filter((y) => y.day === d);
+			});
+			this.routines = Object.assign([], res);
 		});
 	}
 }

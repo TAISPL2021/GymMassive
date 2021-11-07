@@ -8,4 +8,6 @@ import { Routine } from 'src/app/models';
 })
 export class RoutineCardComponent {
 	@Input() routine: Routine | undefined;
+	@Input() sets: number | undefined;
+	@Input() reps: number | undefined;
 }

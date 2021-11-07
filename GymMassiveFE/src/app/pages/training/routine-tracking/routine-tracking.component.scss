@@ -21,3 +21,37 @@
 		align-items: center;
 	}
 }
+
+h2 {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 31px;
+	font-weight: bold;
+	margin: 10px 5px;
+	padding: 12px;
+	text-align: center;
+	background-color: white;
+	width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.routine {
+	&-spinner {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+	}
+	&-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		& > p {
+			font-size: 30px;
+			margin: 100px;
+			border: solid 1px #d5d1d1;
+			padding: 20px;
+			text-align: center;
+			border-radius: 7px;
+		}
+	}
+}
