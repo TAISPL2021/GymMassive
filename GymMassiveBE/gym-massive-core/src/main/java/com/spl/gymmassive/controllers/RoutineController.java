@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,6 @@ import com.spl.gymmassive.models.Routine;
 import com.spl.gymmassive.services.RoutineService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class RoutineController {
 	@Autowired
 	private RoutineService routineService;
@@ -39,12 +37,12 @@ public class RoutineController {
 	}
 
 	@RequestMapping(value = "/routine/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Routine> findById(@PathVariable String id) {
+	public ResponseEntity<Routine> findRoutineById(@PathVariable String id) {
 		return ResponseEntity.status(HttpStatus.OK).body(routineService.findById(id));
 	}
 
 	@RequestMapping(value = "/routine", method = RequestMethod.PUT)
-	public ResponseEntity<Routine> editNews(@RequestBody Routine routine) {
+	public ResponseEntity<Routine> editRoutine(@RequestBody Routine routine) {
 		Routine editedRoutine = routineService.editRoutine(routine);
 		if (editedRoutine != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(routineService.editRoutine(routine));
@@ -54,7 +52,7 @@ public class RoutineController {
 	}
 
 	@RequestMapping(value = "/routine", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> findAllNews(@RequestBody String id) {
+	public ResponseEntity<Boolean> deleteRoutine(@RequestBody String id) {
 		boolean deleted = routineService.deleteRoutine(id);
 		if (deleted) {
 			return ResponseEntity.status(HttpStatus.OK).body(routineService.deleteRoutine(id));

@@ -6,22 +6,28 @@
 	<artifactId>gym-massive-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Gym-Massive-Core</name>
-	
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.6.RELEASE</version>
+		<version>2.2.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
+
 	<properties>
 		<start-class>com.dspl.app.core.DsplCoreApplication</start-class>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	
-		<dependencies>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.spl.gymmassive.training</groupId>
+			<artifactId>gym-massive-training</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<!-- Dependence for mongo db -->
 		<dependency>
@@ -42,6 +48,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<!-- Dependence for json-simple -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
@@ -49,8 +60,25 @@
 			<version>1.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.10.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.10.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.10.7</version>
+		</dependency>
 
 	</dependencies>
 
-	
+
 </project>

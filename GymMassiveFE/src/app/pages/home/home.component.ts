@@ -9,14 +9,23 @@ import { NavigationRoute } from 'src/app/interfaces/navigation-route';
 })
 export class HomeComponent implements OnInit {
 	routes: NavigationRoute[] = [
-		{ path: 'training', name: 'Training', icon: 'widgets' },
+		{
+			path: '',
+			name: 'Entrenamiento',
+			icon: '',
+			children: [
+				{ path: 'training', name: 'Consulta de Ejercicios', icon: 'widgets' },
+				{ path: 'training/tracking', name: 'Mi Rutina', icon: 'widgets' },
+				{ path: 'training/asociate', name: 'Asociar Rutina', icon: 'widgets' }
+			]
+		},
 		{
 			path: '',
 			name: 'Administrativo',
 			icon: '',
 			children: [
 				{
-					path: 'administrative/list',
+					path: 'employees',
 					name: 'Listado de Empleados',
 					icon: 'people'
 				}
@@ -25,6 +34,6 @@ export class HomeComponent implements OnInit {
 	];
 	constructor(private router: Router) {}
 	ngOnInit() {
-		this.router.navigate([ 'home/training' ]);
+		//this.router.navigate([ 'home/training' ]);
 	}
 }

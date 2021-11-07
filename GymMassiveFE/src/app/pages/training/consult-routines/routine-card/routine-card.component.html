@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="card-title">{{routine?.exercise}}</mat-card-title>
+    <mat-card-subtitle class="card-subtitle">{{routine?.group}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="routine?.image" [alt]="routine?.exercise">
+  <mat-card-content>
+    <p class="card-content" style="font-size: 20px;">
+      {{sets?sets:routine?.sets}} series de {{reps?reps:routine?.reps}} repeticiones
+    </p>
+  </mat-card-content>
+</mat-card>

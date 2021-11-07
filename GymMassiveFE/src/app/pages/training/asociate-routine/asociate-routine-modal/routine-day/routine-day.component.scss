@@ -1,0 +1,17 @@
+.day {
+	&-button {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&-remove {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&-wrapper {
+		border: solid #c7c2c2 1px;
+		border-radius: 6px;
+		padding: 15px;
+	}
+}

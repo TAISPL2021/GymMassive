@@ -1,1 +1,26 @@
-<p>consult-routines works!</p>
+<div class="banner">
+    <img src="../../../../assets/routines.png" />
+    <div class="banner-header">
+        <h1>Consultar Ejercicios</h1>
+        <mat-form-field appearance="outline">
+            <mat-icon matSuffix>search</mat-icon>
+            <input matInput placeholder="Buscar" autocomplete="off" [formControl]="searchControl" />
+        </mat-form-field>
+    </div>
+    <hr />
+</div>
+
+<div class="routine-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="routine-wrapper" *ngIf="!loading">
+    <ng-container *ngIf="routines.length;else empty">
+        <ng-container *ngFor="let routine of routines">
+            <app-routine-card [routine]="routine"></app-routine-card>
+        </ng-container>
+    </ng-container>
+    <ng-template #empty>
+        <p>Sin Resultados</p>
+    </ng-template>
+</div>

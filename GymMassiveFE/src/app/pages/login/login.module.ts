@@ -11,7 +11,6 @@ import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register/register.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [LoginComponent, RegisterComponent],
@@ -27,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
 		LoginRoutingModule,
 		MatCardModule,
 		FormsModule,
-		HttpClientModule
 	]
 })
 export class LoginModule { }
