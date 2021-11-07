@@ -1,0 +1,32 @@
+<div class="banner">
+    <img src="../../../../assets/Rutine.jpeg" />
+    <div class="banner-header">
+        <h1>Mi Rutina</h1>
+    </div>
+    <hr />
+</div>
+
+<div class="routine-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading">
+    <ng-container *ngIf="routines.length;else empty">
+
+        <ng-container *ngFor="let day of dayRoutineKeys">
+            <ng-container *ngIf="dayRoutine[day].length">
+                <h2>{{day}}</h2>
+                <div class="routine-wrapper">
+                    <ng-container *ngFor="let routineDay of dayRoutine[day]">
+                        <app-routine-card [reps]="routineDay.reps" [sets]="routineDay.sets"
+                            [routine]="routineDay.training"></app-routine-card>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </ng-container>
+
+    </ng-container>
+    <ng-template #empty>
+        <p>Sin Resultados</p>
+    </ng-template>
+</div>

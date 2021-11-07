@@ -23,6 +23,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>com.spl.gymmassive.training</groupId>
+			<artifactId>gym-massive-training</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- Dependence for mongo db -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -33,4 +33,8 @@ export class UserService extends Services {
 	getEmployees(): Observable<User[]> {
 		return this._http.get<User[]>(this.BASE_URL + '/findEmployees', { headers: this.GetHttpHeaders() });
 	}
+
+	getClients(): Observable<User[]> {
+		return this._http.get<User[]>(this.BASE_URL + '/findClients', { headers: this.GetHttpHeaders() });
+	}
 }

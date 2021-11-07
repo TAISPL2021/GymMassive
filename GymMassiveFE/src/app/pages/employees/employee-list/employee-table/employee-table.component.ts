@@ -65,6 +65,7 @@ export class EmployeeTableComponent implements OnInit {
 			this.userService.updateEmployee(result).subscribe(
 				(res) => {
 					this.getEmployees();
+					this.openSnackBar('Empleado Actualizado Satisfactoriamente');
 				},
 				(error) => {}
 			);

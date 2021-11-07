@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Actualizar Rutina</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="routine-spinner" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+    <ng-container *ngIf="!loading">
+        <div style="margin-bottom: 10px;" *ngFor="let formGroup of formList.controls; index as i">
+            <app-routine-day [emptyRoutine]="emptyRoutine" [formGroup]="formGroup" [routines]="routines"
+                (formGroupEmitter)="addFormGroup($event)">
+                <button class="close-button" (click)="removeGroup(i)" *ngIf="formArrayLenght>1">x</button>
+            </app-routine-day>
+        </div>
+        <button mat-flat-button color="primary" (click)="addEmptyFormGroup()">Agregar Día</button>
+    </ng-container>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="updateRoutine()" color="primary">Actualizar
+        Rutina</button>
+</mat-dialog-actions>

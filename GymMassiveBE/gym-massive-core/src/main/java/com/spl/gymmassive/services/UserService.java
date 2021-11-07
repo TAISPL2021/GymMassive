@@ -26,6 +26,12 @@ public class UserService {
 
 	}
 
+	public List<User> findAllClients() {
+		return userRepository.findAll().stream().filter(c -> c.getType().equals("Cliente"))
+				.collect(Collectors.toList());
+
+	}
+
 	public User findById(String userId) {
 		Optional<User> user = userRepository.findById(userId);
 		return user.isPresent() ? user.get() : null;
