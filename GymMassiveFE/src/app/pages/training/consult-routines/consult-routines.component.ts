@@ -45,28 +45,21 @@ export class ConsultRoutinesComponent implements OnInit, OnDestroy {
 			this.routinesService.createRoutine(result).subscribe(
 				(res) => {
 					this.getRoutines();
-					this.openSnackBar('Empleado Actualizado Satisfactoriamente');
+					this.openSnackBar('Ejercicio Creado Satisfactoriamente');
 				},
 				(error) => {}
 			);
-			// this.userService.updateEmployee(result).subscribe(
-			// 	(res) => {
-			// 		this.getEmployees();
-			// 		this.openSnackBar('Empleado Actualizado Satisfactoriamente');
-			// 	},
-			// 	(error) => {}
-			// );
 		});
 	}
 
 	openSnackBar(message: string): void {
 		this._snackBar.open(message, 'X', {
 			horizontalPosition: 'end',
-			verticalPosition: 'top'
+			verticalPosition: 'bottom'
 		});
 	}
 
-	private getRoutines() {
+	getRoutines() {
 		this.loading = true;
 		this.routinesService.getAllRoutines().subscribe((res) => {
 			this.routines = res;

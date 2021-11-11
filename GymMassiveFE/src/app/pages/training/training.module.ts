@@ -26,6 +26,7 @@ import { RoutineTrackingComponent } from './routine-tracking/routine-tracking.co
 import { TrainingRoutingModule } from './training-routing.module';
 import { CreateRoutineComponent } from './create-routine/create-routine.component';
 import { ShareModule } from 'src/app/share/share.module';
+import { UpdateRoutineComponent } from './update-routine/update-routine.component';
 
 @NgModule({
 	declarations: [
@@ -36,7 +37,8 @@ import { ShareModule } from 'src/app/share/share.module';
 		ClientListComponent,
 		AsociateRoutineModalComponent,
 		RoutineDayComponent,
-		CreateRoutineComponent
+		CreateRoutineComponent,
+  UpdateRoutineComponent
 	],
 	imports: [
 		MatMenuModule,

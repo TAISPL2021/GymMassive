@@ -22,7 +22,8 @@
 <div class="routine-wrapper" *ngIf="!loading">
     <ng-container *ngIf="routines.length;else empty">
         <ng-container *ngFor="let routine of routines">
-            <app-routine-card [actionButton]="enableEdit" [routine]="routine"></app-routine-card>
+            <app-routine-card (reloadRoutines)="getRoutines()" [actionButton]="enableEdit" [routine]="routine">
+            </app-routine-card>
         </ng-container>
     </ng-container>
     <ng-template #empty>
