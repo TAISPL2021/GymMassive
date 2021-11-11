@@ -4,6 +4,15 @@
 		justify-content: center;
 		margin-top: 20px;
 	}
+
+	& > p {
+		font-size: 30px;
+		margin: auto 100px;
+		border: solid 1px #d5d1d1;
+		padding: 20px;
+		text-align: center;
+		border-radius: 7px;
+	}
 }
 
 .close-button {

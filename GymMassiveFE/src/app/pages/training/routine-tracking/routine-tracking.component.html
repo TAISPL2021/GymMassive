@@ -10,7 +10,11 @@
     <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="!loading">
+<div class="routine" *ngIf="noAvailable">
+    <p>Servicio no Disponible</p>
+</div>
+
+<div *ngIf="!loading && !noAvailable">
     <ng-container *ngIf="routines.length;else empty">
 
         <ng-container *ngFor="let day of dayRoutineKeys">
@@ -27,6 +31,6 @@
 
     </ng-container>
     <ng-template #empty>
-        <p>Sin Resultados</p>
+        <p class="empty">Sin Resultados</p>
     </ng-template>
 </div>

@@ -18,6 +18,7 @@ export class AsociateRoutineModalComponent implements OnInit {
 	formList = new FormArray([]);
 	days = [ 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo' ];
 	emptyRoutine: boolean = true;
+	noAvailable: boolean;
 
 	get formArrayLenght() {
 		return (this.formList as FormArray).length;
@@ -49,7 +50,7 @@ export class AsociateRoutineModalComponent implements OnInit {
 	}
 
 	updateRoutine(): void {
-		if (this.formList.valid) {
+		if (this.formList.valid && !this.noAvailable) {
 			const userTraining = this.createRequest();
 			this.dialogRef.close(userTraining);
 		}
@@ -86,39 +87,45 @@ export class AsociateRoutineModalComponent implements OnInit {
 		forkJoin([
 			this.routinesService.getAllRoutines(),
 			this.userTrainingService.getUserRoutine(this.data.client)
-		]).subscribe((res) => {
-			this.routines = res[0].sort((a, b) => {
-				if (a.group < b.group) {
-					return -1;
-				}
-				if (a.group > b.group) {
-					return 1;
-				}
-				return 0;
-			});
-			this.loading = false;
-			const routine = res[1];
-			if (routine) {
-				this.formList.removeAt(0);
-				this.days.forEach((day) => {
-					const dayRoutine = routine.filter((x) => x.day === day).map((y) => {
-						return new FormGroup({
-							routine: new FormControl(y.training.id),
-							sets: new FormControl(y.sets),
-							reps: new FormControl(y.reps)
-						});
-					});
-					if (dayRoutine.length) {
-						this.emptyRoutine = false;
-						this.formList.push(
-							new FormGroup({
-								day: new FormControl(day),
-								exercises: new FormArray(dayRoutine)
-							})
-						);
+		]).subscribe(
+			(res) => {
+				this.routines = res[0].sort((a, b) => {
+					if (a.group < b.group) {
+						return -1;
 					}
+					if (a.group > b.group) {
+						return 1;
+					}
+					return 0;
 				});
+				this.loading = false;
+				const routine = res[1];
+				if (routine) {
+					this.formList.removeAt(0);
+					this.days.forEach((day) => {
+						const dayRoutine = routine.filter((x) => x.day === day).map((y) => {
+							return new FormGroup({
+								routine: new FormControl(y.training.id),
+								sets: new FormControl(y.sets),
+								reps: new FormControl(y.reps)
+							});
+						});
+						if (dayRoutine.length) {
+							this.emptyRoutine = false;
+							this.formList.push(
+								new FormGroup({
+									day: new FormControl(day),
+									exercises: new FormArray(dayRoutine)
+								})
+							);
+						}
+					});
+				}
+			},
+			(error) => {
+				this.loading = false;
+				this.noAvailable = true;
 			}
-		});
+		);
 	}
 }

@@ -11,6 +11,7 @@ export class RoutineTrackingComponent implements OnInit {
 	userId: string;
 	loading: boolean;
 	routines: Routine[] = [];
+	noAvailable: boolean;
 	constructor(private userTrainingService: UserTrainingService) {}
 	get dayRoutineKeys() {
 		return Object.keys(this.dayRoutine);
@@ -32,12 +33,18 @@ export class RoutineTrackingComponent implements OnInit {
 	private initUserRoutines() {
 		this.loading = true;
 		this.userId = sessionStorage.getItem('userId');
-		this.userTrainingService.getUserRoutine(this.userId).subscribe((res) => {
-			this.loading = false;
-			Object.keys(this.dayRoutine).forEach((d) => {
-				this.dayRoutine[d] = res.filter((y) => y.day === d);
-			});
-			this.routines = Object.assign([], res);
-		});
+		this.userTrainingService.getUserRoutine(this.userId).subscribe(
+			(res) => {
+				this.loading = false;
+				Object.keys(this.dayRoutine).forEach((d) => {
+					this.dayRoutine[d] = res.filter((y) => y.day === d);
+				});
+				this.routines = Object.assign([], res);
+			},
+			(error) => {
+				this.noAvailable = true;
+				this.loading = false;
+			}
+		);
 	}
 }
