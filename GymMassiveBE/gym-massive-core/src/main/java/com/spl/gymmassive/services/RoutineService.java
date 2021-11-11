@@ -45,6 +45,6 @@ public class RoutineService {
 
 	public boolean deleteRoutine(String routineId) {
 		routineRepository.deleteById(routineId);
-		return routineRepository.findById(routineId) == null;
+		return !routineRepository.findById(routineId).isPresent();
 	}
 }

@@ -51,8 +51,8 @@ public class RoutineController {
 		}
 	}
 
-	@RequestMapping(value = "/routine", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> deleteRoutine(@RequestBody String id) {
+	@RequestMapping(value = "/routine/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Boolean> deleteRoutine(@PathVariable String id) {
 		boolean deleted = routineService.deleteRoutine(id);
 		if (deleted) {
 			return ResponseEntity.status(HttpStatus.OK).body(routineService.deleteRoutine(id));

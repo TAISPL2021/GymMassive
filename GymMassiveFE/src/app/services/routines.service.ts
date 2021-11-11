@@ -24,4 +24,8 @@ export class RoutinesService extends Services {
 	updateRoutine(body: Routine): Observable<Routine> {
 		return this._http.put<Routine>(environment.url + '/routine', body, { headers: this.GetHttpHeaders() });
 	}
+
+	removeRoutine(id: string): Observable<boolean> {
+		return this._http.delete<boolean>(environment.url + '/routine/' + id, { headers: this.GetHttpHeaders() });
+	}
 }

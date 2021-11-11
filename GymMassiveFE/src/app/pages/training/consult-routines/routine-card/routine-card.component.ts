@@ -33,6 +33,16 @@ export class RoutineCardComponent {
 		});
 	}
 
+	removeRoutine(): void {
+		this.routinesService.removeRoutine(this.routine.id).subscribe(
+			(res) => {
+				this.reloadRoutines.emit(Object.assign({}, true));
+				this.openSnackBar('Ejercicio Eliminado Satisfactoriamente');
+			},
+			(error) => {}
+		);
+	}
+
 	openSnackBar(message: string): void {
 		this._snackBar.open(message, 'X', {
 			horizontalPosition: 'end',
