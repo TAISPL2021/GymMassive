@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline" style="padding:0" [ngClass]="{'mat-form-field-invalid': invalid}">
+    <div>
+        <mat-toolbar>
+            <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+            <button mat-flat-button color="primary">
+                Buscar Archivo
+            </button>
+        </mat-toolbar>
+        <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
+            multiple="multiple" accept="image/*" />
+        <mat-error *ngIf="invalid">Campo Requerido</mat-error>
+    </div>
+</mat-form-field>

@@ -1,5 +1,16 @@
 <mat-card>
-  <mat-card-header>
+  <mat-card-header style="display: flex; align-items: center;">
+    <button *ngIf="actionButton" mat-button [matMenuTriggerFor]="menu" style="padding: 0;margin-left: auto;">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>edit</mat-icon> Editar
+      </button>
+      <button mat-menu-item>
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </mat-menu>
     <mat-card-title class="card-title">{{routine?.exercise}}</mat-card-title>
     <mat-card-subtitle class="card-subtitle">{{routine?.group}}</mat-card-subtitle>
   </mat-card-header>
@@ -9,4 +20,5 @@
       {{sets?sets:routine?.sets}} series de {{reps?reps:routine?.reps}} repeticiones
     </p>
   </mat-card-content>
+
 </mat-card>

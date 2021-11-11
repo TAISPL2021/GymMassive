@@ -7,6 +7,7 @@ import { Routine } from 'src/app/models';
 	styleUrls: [ './routine-card.component.scss' ]
 })
 export class RoutineCardComponent {
+	@Input() actionButton: boolean = true;
 	@Input() routine: Routine | undefined;
 	@Input() sets: number | undefined;
 	@Input() reps: number | undefined;

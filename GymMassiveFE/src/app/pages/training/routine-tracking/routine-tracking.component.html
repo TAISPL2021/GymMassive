@@ -18,7 +18,7 @@
                 <h2>{{day}}</h2>
                 <div class="routine-wrapper">
                     <ng-container *ngFor="let routineDay of dayRoutine[day]">
-                        <app-routine-card [reps]="routineDay.reps" [sets]="routineDay.sets"
+                        <app-routine-card [actionButton]="false" [reps]="routineDay.reps" [sets]="routineDay.sets"
                             [routine]="routineDay.training"></app-routine-card>
                     </ng-container>
                 </div>
