@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spl.gymmassive.aspects.EmailAnotation;
 import com.spl.gymmassive.models.User;
 import com.spl.gymmassive.repositories.UserRepository;
 
@@ -37,6 +38,7 @@ public class UserService {
 		return user.isPresent() ? user.get() : null;
 	}
 
+	@EmailAnotation(operation = "Registro", emailTo = "[0].email")
 	public User createUser(User user) {
 		return userRepository.save(user);
 	}
