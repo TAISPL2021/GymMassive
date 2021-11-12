@@ -9,12 +9,23 @@ import { Services } from './services.service';
 	providedIn: 'root'
 })
 export class RoutinesService extends Services {
-
 	constructor(public _http: HttpClient) {
 		super();
 	}
 
 	getAllRoutines(): Observable<Routine[]> {
 		return this._http.get<Routine[]>(environment.url + '/routine', { headers: this.GetHttpHeaders() });
+	}
+
+	createRoutine(body: Routine): Observable<Routine> {
+		return this._http.post<Routine>(environment.url + '/routine', body, { headers: this.GetHttpHeaders() });
+	}
+
+	updateRoutine(body: Routine): Observable<Routine> {
+		return this._http.put<Routine>(environment.url + '/routine', body, { headers: this.GetHttpHeaders() });
+	}
+
+	removeRoutine(id: string): Observable<boolean> {
+		return this._http.delete<boolean>(environment.url + '/routine/' + id, { headers: this.GetHttpHeaders() });
 	}
 }

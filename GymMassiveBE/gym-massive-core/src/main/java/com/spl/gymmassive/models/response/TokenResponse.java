@@ -3,12 +3,16 @@
  */
 package com.spl.gymmassive.models.response;
 
+import java.util.List;
+
 /**
  * @author brayan.guerrero
  *
  */
 public class TokenResponse {
 
+	private String userType;
+	private List<ConfigurationElement> configuration;
 	private String userId;
 	private String email;
 	private String token;
@@ -22,17 +26,50 @@ public class TokenResponse {
 	}
 
 	/**
+	 * @param userType
+	 * @param configuration
 	 * @param userId
 	 * @param email
 	 * @param token
 	 * @param refreshToken
 	 */
-	public TokenResponse(String userId, String email, String token, String refreshToken) {
+	public TokenResponse(String userType, List<ConfigurationElement> configuration, String userId, String email,
+			String token, String refreshToken) {
 		super();
+		this.userType = userType;
+		this.configuration = configuration;
 		this.userId = userId;
 		this.email = email;
 		this.token = token;
 		this.refreshToken = refreshToken;
+	}
+
+	/**
+	 * @return the userType
+	 */
+	public String getUserType() {
+		return userType;
+	}
+
+	/**
+	 * @param userType the userType to set
+	 */
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	/**
+	 * @return the configuration
+	 */
+	public List<ConfigurationElement> getConfiguration() {
+		return configuration;
+	}
+
+	/**
+	 * @param configuration the configuration to set
+	 */
+	public void setConfiguration(List<ConfigurationElement> configuration) {
+		this.configuration = configuration;
 	}
 
 	/**

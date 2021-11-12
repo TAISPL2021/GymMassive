@@ -21,13 +21,19 @@
 		align-items: center;
 	}
 }
-
+.button-wrapper {
+	padding-right: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
 .routine {
 	&-spinner {
 		display: flex;
-		justify-content: center ;
+		justify-content: center;
 		margin-top: 20px;
 	}
+
 	&-wrapper {
 		display: flex;
 		flex-wrap: wrap;
