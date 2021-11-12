@@ -2,10 +2,15 @@
     <img src="../../../../assets/routines.png" />
     <div class="banner-header">
         <h1>Consultar Ejercicios</h1>
-        <mat-form-field appearance="outline">
-            <mat-icon matSuffix>search</mat-icon>
-            <input matInput placeholder="Buscar" autocomplete="off" [formControl]="searchControl" />
-        </mat-form-field>
+        <div class="button-wrapper">
+            <button *ngIf="enableEdit" mat-flat-button color="primary" style="margin-bottom: 5px;"
+                (click)="createRoutine()">Crear
+                Ejercicio</button>
+            <mat-form-field appearance="outline">
+                <mat-icon matSuffix>search</mat-icon>
+                <input matInput placeholder="Buscar" autocomplete="off" [formControl]="searchControl" />
+            </mat-form-field>
+        </div>
     </div>
     <hr />
 </div>
@@ -17,7 +22,8 @@
 <div class="routine-wrapper" *ngIf="!loading">
     <ng-container *ngIf="routines.length;else empty">
         <ng-container *ngFor="let routine of routines">
-            <app-routine-card [routine]="routine"></app-routine-card>
+            <app-routine-card (reloadRoutines)="getRoutines()" [actionButton]="enableEdit" [routine]="routine">
+            </app-routine-card>
         </ng-container>
     </ng-container>
     <ng-template #empty>

@@ -1,6 +1,13 @@
+export interface ConfigurationElement {
+	configName: string;
+	enabled: true;
+}
+
 export interface LoginResponse {
-	userId: string;
+	configuration: ConfigurationElement[];
 	email: string;
-	token: string;
 	refreshToken: string;
+	token: string;
+	userId: string;
+	userType: string;
 }

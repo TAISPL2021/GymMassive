@@ -24,6 +24,8 @@ export class LoginComponent {
 			this.loginService.login(email, password).subscribe(
 				(result) => {
 					let loginResponse: LoginResponse = result;
+					sessionStorage.setItem('configuration', JSON.stringify(loginResponse.configuration));
+					sessionStorage.setItem('userType', loginResponse.userType);
 					sessionStorage.setItem('userId', loginResponse.userId);
 					sessionStorage.setItem('email', loginResponse.email);
 					sessionStorage.setItem('token', loginResponse.token);

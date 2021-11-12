@@ -3,7 +3,10 @@
     <div class="routine-spinner" *ngIf="loading">
         <mat-spinner></mat-spinner>
     </div>
-    <ng-container *ngIf="!loading">
+    <div class="routine" *ngIf="noAvailable">
+        <p>Servicio no Disponible</p>
+    </div>
+    <ng-container *ngIf="!loading && !noAvailable">
         <div style="margin-bottom: 10px;" *ngFor="let formGroup of formList.controls; index as i">
             <app-routine-day [emptyRoutine]="emptyRoutine" [formGroup]="formGroup" [routines]="routines"
                 (formGroupEmitter)="addFormGroup($event)">

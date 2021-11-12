@@ -1,5 +1,5 @@
 export interface Routine {
-	id: string;
+	id?: string;
 	exercise: string;
 	sets: number;
 	reps: number;
