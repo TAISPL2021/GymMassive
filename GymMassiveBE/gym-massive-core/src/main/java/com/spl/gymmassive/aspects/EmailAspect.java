@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -20,20 +21,25 @@ import com.spl.gymmassive.services.MailSenderService;
 @Aspect
 @Component
 public class EmailAspect {
-	
+
 	@Autowired
 	private MailSenderService mailSenderService;
 
+	@Autowired
+	private Environment env;
+
 	@After(value = "@annotation(EmailAnotation)")
 	public void logExecutionTime(JoinPoint joinPoint) {
-		EmailAnotation emailAnotation = getOperation(joinPoint);
-		String emailOperation = emailAnotation.operation();
-		String toEmail = getEmail(joinPoint, emailAnotation);
-		MailSenderModel model= getModelByOperation(emailOperation, toEmail);
-		try {
-			mailSenderService.sendSimpleMessage(model);
-		} catch (MessagingException e) {
-			e.printStackTrace();
+		if (env.getProperty("NotifyEmail").equalsIgnoreCase("true")) {
+			EmailAnotation emailAnotation = getOperation(joinPoint);
+			String emailOperation = emailAnotation.operation();
+			String toEmail = getEmail(joinPoint, emailAnotation);
+			MailSenderModel model = getModelByOperation(emailOperation, toEmail);
+			try {
+				mailSenderService.sendSimpleMessage(model);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
