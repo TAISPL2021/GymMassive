@@ -48,9 +48,16 @@ public class EmailAspect {
 		switch (operation) {
 		case "Registro":
 			return registerEmail(toEmail);
+		case "SuscriptionPlan":
+			return suscriptionEmail(toEmail);
 		default:
 			return null;
 		}
+	}
+
+	private MailSenderModel suscriptionEmail(String toEmail) {
+		return new MailSenderModel(toEmail, "Suscripcion Exitosa!",
+				"Se ha realizado una suscripción exitosa a un plan de entrenamiento.");
 	}
 
 	private MailSenderModel registerEmail(String toEmail) {

@@ -30,6 +30,18 @@ export class HomeComponent implements OnInit {
 					icon: 'people'
 				}
 			]
+		},
+		{
+			path: '',
+			name: 'Planes',
+			icon: '',
+			children: [
+				{
+					path: 'suscription',
+					name: 'Suscribirse a Plan',
+					icon: 'people'
+				}
+			]
 		}
 	];
 	constructor(private router: Router) {}

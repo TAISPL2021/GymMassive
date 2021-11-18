@@ -1,0 +1,23 @@
+<div class="banner">
+    <img src="../../../../assets/plan.jpg" />
+    <div class="banner-header">
+        <h1>Listado de Planes</h1>
+        <div class="button-wrapper" *ngIf="enableEdit">
+            <button mat-flat-button color="primary" style="margin-bottom: 5px;" (click)="displaySuscription()">Mi Suscripción</button>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<div class="plan-wrapper">
+    <ng-container *ngIf="plans.length;else empty">
+        <ng-container *ngFor="let plan of plans">
+            <app-plan-card [plan]="plan"></app-plan-card>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #empty>
+        <p>Sin Resultados</p>
+    </ng-template>
+
+</div>
