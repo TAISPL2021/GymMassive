@@ -11,135 +11,34 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="GymMassive">
-			<and mandatory="true" name="Notifications">
-				<feature mandatory="true" name="Email"/>
-				<feature mandatory="true" name="VisualAlerts"/>
-			</and>
-			<and mandatory="true" name="Training">
-				<feature mandatory="true" name="ConsultRoutines"/>
-			</and>
+			<feature mandatory="true" name="ConsultRoutines"/>
 			<and mandatory="true" name="Authentication">
 				<feature mandatory="true" name="Login"/>
 				<feature mandatory="true" name="Register"/>
 			</and>
+			<and mandatory="true" name="Employees">
+				<feature mandatory="true" name="ManageEmployees"/>
+				<feature mandatory="true" name="ConsultEmployees"/>
+			</and>
+			<feature mandatory="true" name="VisualAlertsNotifications"/>
+			<feature name="EmailNotifications"/>
 			<alt name="Booking">
 				<feature name="BookAClass"/>
 				<feature name="ManageBookings"/>
 			</alt>
-			<or name="DTraining">
-				<feature name="ManageRoutines"/>
-				<feature name="RoutineTracking"/>
-				<feature name="MyRoutines"/>
-			</or>
-			<alt name="Suscriptions">
+			<or name="Suscriptions">
 				<graphics key="collapsed" value="false"/>
-				<feature name="ManagePlans"/>
-				<feature name="SuscribeToPlan"/>
-			</alt>
-			<and name="Employees">
-				<feature mandatory="true" name="ManageEmployees"/>
-				<feature mandatory="true" name="ConsultEmployees"/>
-			</and>
+				<feature name="ManageSuscriptions"/>
+				<or name="SuscribeToPlan">
+					<feature name="MonthPlan"/>
+					<feature name="YearPlan"/>
+					<feature name="QuarterPlan"/>
+				</or>
+			</or>
+			<or name="Training">
+				<feature name="RoutineTracking"/>
+				<feature name="CreateRoutines"/>
+			</or>
 		</and>
 	</struct>
-	<constraints>
-		<rule>
-			<imp>
-				<conj>
-					<var>RoutineTracking</var>
-					<var>ManageRoutines</var>
-				</conj>
-				<not>
-					<var>MyRoutines</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>ManageRoutines</var>
-				<var>RoutineTracking</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>RoutineTracking</var>
-				<var>ManageRoutines</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>SuscribeToPlan</var>
-					<disj>
-						<var>MyRoutines</var>
-						<var>BookAClass</var>
-					</disj>
-				</disj>
-				<not>
-					<var>Employees</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>SuscribeToPlan</var>
-					<disj>
-						<var>MyRoutines</var>
-						<var>BookAClass</var>
-					</disj>
-				</disj>
-				<not>
-					<var>ManagePlans</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>SuscribeToPlan</var>
-					<disj>
-						<var>MyRoutines</var>
-						<var>BookAClass</var>
-					</disj>
-				</disj>
-				<not>
-					<var>ManageBookings</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>ManageRoutines</var>
-					<var>RoutineTracking</var>
-				</disj>
-				<not>
-					<var>Employees</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>ManageRoutines</var>
-					<var>RoutineTracking</var>
-				</disj>
-				<not>
-					<var>Suscriptions</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<disj>
-					<var>ManageRoutines</var>
-					<var>RoutineTracking</var>
-				</disj>
-				<not>
-					<var>Booking</var>
-				</not>
-			</imp>
-		</rule>
-	</constraints>
 </featureModel>
