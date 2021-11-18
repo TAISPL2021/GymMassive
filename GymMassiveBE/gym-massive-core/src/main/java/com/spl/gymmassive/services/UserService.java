@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.spl.gymmassive.aspects.EmailAnotation;
 import com.spl.gymmassive.models.User;
+import com.spl.gymmassive.models.UserBuilder;
+import com.spl.gymmassive.models.request.UserRequest;
 import com.spl.gymmassive.repositories.UserRepository;
 
 @Service
@@ -39,8 +41,25 @@ public class UserService {
 	}
 
 	@EmailAnotation(operation = "Registro", emailTo = "[0].email")
-	public User createUser(User user) {
+	public User createUser(UserRequest userRequest) {
+		UserBuilder userBuilder = new UserBuilder();
+		User user = buildUser(userRequest, userBuilder);
 		return userRepository.save(user);
+	}
+
+	private User buildUser(UserRequest userRequest, UserBuilder userBuilder) {
+		return userBuilder
+				.setId(userRequest.getId())
+				.setName(userRequest.getName())
+				.setLastName(userRequest.getLastName())
+				.setBirthday(userRequest.getBirthday())
+				.setDocumentType(userRequest.getDocumentType())
+				.setDocumentNumber(userRequest.getDocumentNumber())
+				.setPhone(userRequest.getPhone())
+				.setEmail(userRequest.getEmail())
+				.setPassword(userRequest.getPassword())
+				.setType(userRequest.getType())
+				.build();
 	}
 
 	public User editUser(User user) {
