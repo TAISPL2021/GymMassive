@@ -21,15 +21,16 @@
 				<feature mandatory="true" name="ConsultEmployees"/>
 			</and>
 			<feature mandatory="true" name="VisualAlertsNotifications"/>
-			<feature name="EmailNotifications"/>
+			<feature name="NotifyEmail"/>
 			<alt name="Booking">
-				<feature name="BookAClass"/>
-				<feature name="ManageBookings"/>
+				<feature name="BookClass"/>
+				<feature name="ManageBooking"/>
 			</alt>
 			<or name="Suscriptions">
 				<graphics key="collapsed" value="false"/>
-				<feature name="ManageSuscriptions"/>
-				<or name="SuscribeToPlan">
+				<feature name="ManageSuscription"/>
+				<or name="SuscribePlan">
+					<graphics key="collapsed" value="false"/>
 					<feature name="MonthPlan"/>
 					<feature name="YearPlan"/>
 					<feature name="QuarterPlan"/>

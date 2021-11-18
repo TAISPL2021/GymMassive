@@ -9,17 +9,17 @@
 	<feature automatic="selected" name="ManageEmployees"/>
 	<feature automatic="selected" name="ConsultEmployees"/>
 	<feature automatic="selected" name="VisualAlertsNotifications"/>
-	<feature name="EmailNotifications"/>
-	<feature name="Booking"/>
-	<feature name="BookAClass"/>
-	<feature name="ManageBookings"/>
+	<feature manual="selected" name="NotifyEmail"/>
+	<feature automatic="selected" manual="selected" name="Booking"/>
+	<feature manual="selected" name="BookClass"/>
+	<feature automatic="unselected" name="ManageBooking"/>
 	<feature automatic="selected" manual="selected" name="Suscriptions"/>
-	<feature name="ManageSuscriptions"/>
-	<feature automatic="selected" manual="selected" name="SuscribeToPlan"/>
+	<feature manual="selected" name="ManageSuscription"/>
+	<feature automatic="selected" name="SuscribePlan"/>
 	<feature manual="selected" name="MonthPlan"/>
 	<feature manual="selected" name="YearPlan"/>
 	<feature name="QuarterPlan"/>
 	<feature automatic="selected" manual="selected" name="Training"/>
 	<feature manual="selected" name="RoutineTracking"/>
-	<feature name="CreateRoutines"/>
+	<feature manual="selected" name="CreateRoutines"/>
 </configuration>
