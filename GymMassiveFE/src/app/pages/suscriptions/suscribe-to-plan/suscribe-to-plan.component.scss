@@ -1,0 +1,50 @@
+@import '../../../../assets/variables';
+.banner {
+	background-color: white;
+	& > img {
+		object-fit: cover;
+		height: 200px;
+		width: 100%;
+	}
+
+	& h1 {
+		font-family: $title-font;
+		font-size: 40px;
+		font-weight: bold;
+		margin: 10px 5px;
+		padding: 12px;
+	}
+
+	&-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+.button-wrapper {
+	padding-right: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.plan {
+	&-spinner {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		& > p {
+			font-size: 30px;
+			margin: 100px;
+			border: solid 1px #d5d1d1;
+			padding: 20px;
+			text-align: center;
+			border-radius: 7px;
+		}
+	}
+}

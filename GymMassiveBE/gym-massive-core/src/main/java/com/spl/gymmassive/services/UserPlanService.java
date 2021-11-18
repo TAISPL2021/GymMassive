@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spl.gymmassive.aspects.EmailAnotation;
 import com.spl.gymmassive.models.Plan;
 import com.spl.gymmassive.models.UserPlan;
 import com.spl.gymmassive.models.request.UserPlanRequest;
@@ -20,6 +21,7 @@ public class UserPlanService {
 	@Autowired
 	private PlanRepository planRepository;
 
+	@EmailAnotation(operation = "SuscriptionPlan", emailTo = "[0].userEmail")
 	public UserPlan asociateUserPlan(UserPlanRequest userPlanRequest) {
 		Plan plan = planRepository.findById(userPlanRequest.getPlanId()).get();
 		UserPlan userPlan = new UserPlan();

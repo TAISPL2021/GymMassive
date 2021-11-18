@@ -3,6 +3,7 @@ package com.spl.gymmassive.models.request;
 public class UserPlanRequest {
 
 	private String userId;
+	private String userEmail;
 	private String planId;
 
 	/**
@@ -14,12 +15,28 @@ public class UserPlanRequest {
 
 	/**
 	 * @param userId
+	 * @param userEmail
 	 * @param planId
 	 */
-	public UserPlanRequest(String userId, String planId) {
+	public UserPlanRequest(String userId, String userEmail, String planId) {
 		super();
 		this.userId = userId;
+		this.userEmail = userEmail;
 		this.planId = planId;
+	}
+
+	/**
+	 * @return the userEmail
+	 */
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	/**
+	 * @param userEmail the userEmail to set
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	/**
