@@ -3,14 +3,22 @@
  */
 package com.spl.gymmassive.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.spl.gymmassive.models.User;
+import com.spl.gymmassive.models.request.UserRequest;
 import com.spl.gymmassive.services.UserService;
-
-import java.util.List;
 
 /**
  * @author joaquin.suarez
@@ -24,7 +32,7 @@ public class UserController {
 	private UserService userService;
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<User> createUser(@RequestBody User newUser) {
+	public ResponseEntity<User> createUser(@RequestBody UserRequest newUser) {
 		return ResponseEntity.ok(userService.createUser(newUser));
 	}
 
