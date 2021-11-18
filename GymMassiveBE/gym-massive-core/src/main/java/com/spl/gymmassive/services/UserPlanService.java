@@ -44,4 +44,8 @@ public class UserPlanService {
 		return !userPlanRepository.findByUserId(userId).isPresent();
 	}
 
+	public UserPlan findUserPlan(String userId) {
+		return userPlanRepository.findByUserId(userId).isPresent() ? userPlanRepository.findByUserId(userId).get() : null;
+	}
+
 }

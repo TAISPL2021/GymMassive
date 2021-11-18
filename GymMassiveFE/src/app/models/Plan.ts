@@ -4,3 +4,11 @@ export interface Plan {
 	name: string;
 	price: number;
 }
+
+export interface UserPlan {
+	id: string;
+	userId: string;
+	plan: Plan;
+	initialDate: Date;
+	endDate: Date;
+}

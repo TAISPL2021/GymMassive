@@ -32,7 +32,7 @@ public class PlanController {
 	}
 
 	@RequestMapping(value = "/suscribe", method = RequestMethod.POST)
-	public ResponseEntity<UserPlan> createRoutine(@RequestBody UserPlanRequest request) {
+	public ResponseEntity<UserPlan> asociateUserPlan(@RequestBody UserPlanRequest request) {
 
 		UserPlan newPlan = userPlanService.asociateUserPlan(request);
 		if (newPlan != null) {
@@ -43,8 +43,13 @@ public class PlanController {
 		}
 	}
 
+	@RequestMapping(value = "/suscribe/{id}", method = RequestMethod.GET)
+	public UserPlan findUserPlan(@PathVariable String id) {
+		return userPlanService.findUserPlan(id);
+	}
+
 	@RequestMapping(value = "/suscribe/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Boolean> deleteRoutine(@PathVariable String id) {
+	public ResponseEntity<Boolean> deleteSuscription(@PathVariable String id) {
 		boolean deleted = userPlanService.removeUserPlan(id);
 		if (deleted) {
 			return ResponseEntity.status(HttpStatus.OK).body(deleted);

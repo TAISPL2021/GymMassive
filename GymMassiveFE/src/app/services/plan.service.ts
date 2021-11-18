@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Routine } from '../models';
-import { Plan } from '../models/Plan';
+import { Plan, UserPlan } from '../models/Plan';
 import { PlanSuscriptionRequest } from '../models/PlanSuscription';
 import { Services } from './services.service';
 
@@ -19,7 +19,15 @@ export class PlanService extends Services {
 		return this._http.get<Plan[]>(environment.url + '/plans', { headers: this.GetHttpHeaders() });
 	}
 
+	getUserPlan(userId: string): Observable<UserPlan> {
+		return this._http.get<UserPlan>(environment.url + '/suscribe/' + userId, { headers: this.GetHttpHeaders() });
+	}
+
 	asociatePlan(planRequest: PlanSuscriptionRequest) {
-		return this._http.post<Routine>(environment.url + '/suscribe', planRequest, { headers: this.GetHttpHeaders() });
+		return this._http.post<Plan>(environment.url + '/suscribe', planRequest, { headers: this.GetHttpHeaders() });
+	}
+
+	cancelPlan(userId: string) {
+		return this._http.delete<boolean>(environment.url + '/suscribe/' + userId, { headers: this.GetHttpHeaders() });
 	}
 }

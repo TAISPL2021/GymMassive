@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SuscribeToPlanComponent } from './suscribe-to-plan/suscribe-to-plan.component';
-import { SuscriptionRoutingModule } from './suscriptions-routing.module';
+import { SubscribeToPlanComponent } from './suscribe-to-plan/subscribe-to-plan.component';
+import { SubscriptionsRoutingModule } from './subscriptions-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,9 +19,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { ShareModule } from 'src/app/share/share.module';
 import { PlanCardComponent } from './suscribe-to-plan/plan-card/plan-card.component';
+import { MySubscriptionComponent } from './my-subscription/my-subscription.component';
 
 @NgModule({
-	declarations: [ SuscribeToPlanComponent, PlanCardComponent ],
+	declarations: [ SubscribeToPlanComponent, PlanCardComponent, MySubscriptionComponent ],
 	imports: [
 		CommonModule,
 		MatMenuModule,
@@ -40,7 +41,7 @@ import { PlanCardComponent } from './suscribe-to-plan/plan-card/plan-card.compon
 		MatProgressSpinnerModule,
 		ReactiveFormsModule,
 		ShareModule,
-		SuscriptionRoutingModule
+		SubscriptionsRoutingModule
 	]
 })
-export class SuscriptionsModule {}
+export class SubscriptionsModule {}

@@ -2,6 +2,9 @@
     <img src="../../../../assets/plan.jpg" />
     <div class="banner-header">
         <h1>Listado de Planes</h1>
+        <div class="button-wrapper" *ngIf="enableEdit">
+            <button mat-flat-button color="primary" style="margin-bottom: 5px;" (click)="displaySuscription()">Mi Suscripción</button>
+        </div>
     </div>
     <hr />
 </div>
