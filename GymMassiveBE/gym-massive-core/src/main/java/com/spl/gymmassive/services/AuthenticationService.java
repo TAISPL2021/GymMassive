@@ -88,8 +88,8 @@ public class AuthenticationService {
 		configuration.add(new ConfigurationElement("BookClass", env.getProperty("BookClass").equalsIgnoreCase("true")));
 		configuration.add(
 				new ConfigurationElement("ManageBooking", env.getProperty("ManageBooking").equalsIgnoreCase("true")));
-		configuration
-				.add(new ConfigurationElement("ManagePlan", env.getProperty("ManagePlan").equalsIgnoreCase("true")));
+		configuration.add(new ConfigurationElement("ManageSuscription",
+				env.getProperty("ManageSuscription").equalsIgnoreCase("true")));
 		configuration.add(
 				new ConfigurationElement("SuscribePlan", env.getProperty("SuscribePlan").equalsIgnoreCase("true")));
 		configuration.add(
