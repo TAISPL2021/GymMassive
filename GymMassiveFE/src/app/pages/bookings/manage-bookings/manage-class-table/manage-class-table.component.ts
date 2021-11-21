@@ -41,8 +41,12 @@ export class ManageClassTableComponent implements OnInit {
 		const dialogRef = this.dialog.open(CreateClassComponent, { minWidth: 750 });
 		dialogRef.afterClosed().subscribe((result) => {
 			this.classService.actionService(result).subscribe((res) => {
-				this.openSnackBar('Clase creada correctamente!');
-				this.getClasses();
+				if (res) {
+					this.openSnackBar('Clase creada correctamente!');
+					this.getClasses();
+				} else {
+					this.openSnackBar('Servicio no Disponible!');
+				}
 			});
 		});
 	}
@@ -52,8 +56,12 @@ export class ManageClassTableComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe((result) => {
 			this.classService.actionService(result).subscribe((res) => {
-				this.openSnackBar('Clase actualizada correctamente!');
-				this.getClasses();
+				if (res) {
+					this.openSnackBar('Clase actualizada correctamente!');
+					this.getClasses();
+				} else {
+					this.openSnackBar('Servicio no Disponible!');
+				}
 			});
 		});
 	}
@@ -67,8 +75,10 @@ export class ManageClassTableComponent implements OnInit {
 		};
 		this.classService.actionService(action).subscribe((res) => {
 			if (res) {
-				this.openSnackBar('Clase Reservada Exitosamente!');
+				this.openSnackBar('Clase Eliminada Exitosamente!');
 				this.getClasses();
+			} else {
+				this.openSnackBar('Servicio no Disponible!');
 			}
 		});
 	}

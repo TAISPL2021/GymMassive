@@ -46,6 +46,8 @@ export class MyReservationsComponent implements OnInit {
 			if (res) {
 				this.openSnackBar('Reservada Eliminada Exitosamente!');
 				this.getClasses();
+			} else {
+				this.openSnackBar('Servicio no Disponible!');
 			}
 		});
 	}

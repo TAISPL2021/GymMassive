@@ -29,7 +29,8 @@ export class ConsultRoutinesComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
-		this.enableEdit = this.configService.getConfigurationName('CreateRoutines').enabled;
+		const userType = sessionStorage.getItem('userType');
+		this.enableEdit = userType !== 'Cliente' && this.configService.getConfigurationName('CreateRoutines').enabled;
 		this.getRoutines();
 		this.listenSearch();
 	}

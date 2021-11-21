@@ -55,6 +55,8 @@ export class ClassTableComponent implements OnInit {
 			if (res) {
 				this.openSnackBar('Clase Reservada Exitosamente!');
 				this.getClasses();
+			}else{
+				this.openSnackBar('Servicio no Disponible!');
 			}
 		});
 	}

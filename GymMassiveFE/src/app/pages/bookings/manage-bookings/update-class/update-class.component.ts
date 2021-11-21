@@ -36,7 +36,6 @@ export class UpdateClassComponent implements OnInit {
 	createClase() {
 		if (this.formGroup.valid) {
 			const routine = this.createRequest();
-			console.log(routine);
 			this.dialogRef.close(routine);
 		}
 	}
