@@ -1,5 +1,8 @@
 package com.spl.gymmassive.strategy;
 
+import java.util.List;
+
+import com.spl.gymmassive.aspects.EmailAnotation;
 import com.spl.gymmassive.models.Class;
 import com.spl.gymmassive.models.UserClass;
 import com.spl.gymmassive.repositories.ClassRepository;
@@ -17,17 +20,18 @@ public class BookClass implements BookingStrategy {
 	}
 
 	@Override
-	public boolean doOperation(String userId, Class clas, String action) {
+	public boolean doOperation(String userEmail, String userId, Class clas, String action) {
 		switch (action) {
 		case "AsociateUser":
-			return asociateUserClass(userId, clas);
+			return asociateUserClass(userEmail, userId, clas);
 		case "DesasociateUser":
-			return removeUserClass(userId);
+			return removeUserClass(userEmail, userId, clas.getId());
 		}
 		return false;
 	}
 
-	private boolean asociateUserClass(String userId, Class clas) {
+	@EmailAnotation(operation = "AsociateUser", emailTo = "[0]")
+	private boolean asociateUserClass(String userEmail, String userId, Class clas) {
 		UserClass class1 = new UserClass();
 		class1.setClas(clas);
 		class1.setUserId(userId);
@@ -38,13 +42,23 @@ public class BookClass implements BookingStrategy {
 		return userClass.findById(uc.getId()).isPresent();
 	}
 
-	private boolean removeUserClass(String userId) {
-		UserClass class1 = userClass.findByUserId(userId).get();
-		Class c = classRepository.findById(class1.getClas().getId()).get();
-		c.setCapacity(c.getCapacity() + 1);
-		classRepository.save(c);
-		userClass.delete(class1);
-		return !userClass.findById(class1.getId()).isPresent();
+	@EmailAnotation(operation = "DesasociateUser", emailTo = "[0]")
+	private boolean removeUserClass(String userEmail, String userId, String classId) {
+		List<UserClass> classArr = userClass.findAllByUserId(userId).get();
+		UserClass class1 = null;
+		for (UserClass uc : classArr) {
+			if (uc.getClas().getId().equals(classId)) {
+				class1 = uc;
+			}
+		}
+		if (class1 != null) {
+			Class c = classRepository.findById(class1.getClas().getId()).get();
+			c.setCapacity(c.getCapacity() + 1);
+			classRepository.save(c);
+			userClass.delete(class1);
+			return !userClass.findById(class1.getId()).isPresent();
+		}
+		return false;
 	}
 
 }

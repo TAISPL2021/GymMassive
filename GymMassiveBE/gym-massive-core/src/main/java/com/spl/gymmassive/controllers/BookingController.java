@@ -61,8 +61,8 @@ public class BookingController {
 		if (bookingContext == null) {
 			return ResponseEntity.status(HttpStatus.OK).body(false);
 		}
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(bookingContext.executeStrategy(request.getUserId(), request.getClas(), request.getAction()));
+		return ResponseEntity.status(HttpStatus.OK).body(bookingContext.executeStrategy(request.getUserEmail(),
+				request.getUserId(), request.getClas(), request.getAction()));
 	}
 
 }

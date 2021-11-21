@@ -11,7 +11,8 @@ public class BookingContext {
 		this.bookingStrategy = bookingStrategy;
 	}
 
-	public boolean executeStrategy(String userId, com.spl.gymmassive.models.Class clas, String action) {
-		return bookingStrategy.doOperation(userId, clas, action);
+	public boolean executeStrategy(String userEmail, String userId, com.spl.gymmassive.models.Class clas,
+			String action) {
+		return bookingStrategy.doOperation(userEmail, userId, clas, action);
 	}
 }

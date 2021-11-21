@@ -4,5 +4,5 @@ import com.spl.gymmassive.models.Class;
 
 public interface BookingStrategy {
 
-	public boolean doOperation(String userId, Class clas, String action);
+	public boolean doOperation(String userEmail,String userId, Class clas, String action);
 }

@@ -4,17 +4,20 @@ import com.spl.gymmassive.models.Class;
 
 public class BookingRequest {
 
+	private String userEmail;
 	private String userId;
 	private com.spl.gymmassive.models.Class clas;
 	private String action;
 
 	/**
+	 * @param userEmail
 	 * @param userId
 	 * @param clas
 	 * @param action
 	 */
-	public BookingRequest(String userId, Class clas, String action) {
+	public BookingRequest(String userEmail, String userId, Class clas, String action) {
 		super();
+		this.userEmail = userEmail;
 		this.userId = userId;
 		this.clas = clas;
 		this.action = action;
@@ -67,6 +70,20 @@ public class BookingRequest {
 	 */
 	public void setAction(String action) {
 		this.action = action;
+	}
+
+	/**
+	 * @return the userEmail
+	 */
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	/**
+	 * @param userEmail the userEmail to set
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 }

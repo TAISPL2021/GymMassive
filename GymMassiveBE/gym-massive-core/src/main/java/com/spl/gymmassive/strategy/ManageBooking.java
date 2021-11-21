@@ -12,7 +12,7 @@ public class ManageBooking implements BookingStrategy {
 	}
 
 	@Override
-	public boolean doOperation(String userId, Class clas, String action) {
+	public boolean doOperation(String userEmail, String userId, Class clas, String action) {
 		switch (action) {
 		case "Create":
 			return createUpdateClass(clas);

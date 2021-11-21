@@ -13,5 +13,8 @@ public interface UserClassRepository extends MongoRepository<UserClass, String> 
 	Optional<UserClass> findByUserId(String userId);
 	
 	@Query("{userId :?0}")
+	Optional<UserClass> findByUserIdAndClassId(String userId,String classId);
+	
+	@Query("{userId :?0}")
 	Optional<List<UserClass>> findAllByUserId(String userId);
 }
