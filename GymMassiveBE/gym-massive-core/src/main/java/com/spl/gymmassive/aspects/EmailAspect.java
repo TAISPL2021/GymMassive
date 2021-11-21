@@ -50,9 +50,21 @@ public class EmailAspect {
 			return registerEmail(toEmail);
 		case "SuscriptionPlan":
 			return suscriptionEmail(toEmail);
+		case "AsociateUser":
+			return asociateUser(toEmail);
+		case "DesasociateUser":
+			return desasociateUser(toEmail);
 		default:
 			return null;
 		}
+	}
+
+	private MailSenderModel desasociateUser(String toEmail) {
+		return new MailSenderModel(toEmail, "Cancelación Exitosa!", "La cancelación de su reserva se ha realizado satisfactoriamente!.");
+	}
+
+	private MailSenderModel asociateUser(String toEmail) {
+		return new MailSenderModel(toEmail, "Reserva Exitosa!", "Su reserva se ha realizado satisfactoriamente!.");
 	}
 
 	private MailSenderModel suscriptionEmail(String toEmail) {

@@ -18,6 +18,10 @@ const routes: Routes = [
 			{
 				path: 'suscription',
 				loadChildren: () => import('../suscriptions/subscriptions.module').then((m) => m.SubscriptionsModule)
+			},
+			{
+				path: 'booking',
+				loadChildren: () => import('../bookings/bookings.module').then((m) => m.BookingsModule)
 			}
 		]
 	}

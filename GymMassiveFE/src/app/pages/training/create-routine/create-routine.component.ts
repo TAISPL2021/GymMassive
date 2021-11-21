@@ -32,7 +32,6 @@ export class CreateRoutineComponent {
 
 	setImage(image: string): void {
 		this.formGroup.controls.image.setValue(image);
-		console.log(this.formGroup.getRawValue());
 	}
 
 	private createRequest(): Routine {

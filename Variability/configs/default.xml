@@ -11,14 +11,14 @@
 	<feature automatic="selected" name="VisualAlertsNotifications"/>
 	<feature manual="selected" name="NotifyEmail"/>
 	<feature automatic="selected" manual="selected" name="Booking"/>
-	<feature manual="selected" name="BookClass"/>
-	<feature automatic="unselected" name="ManageBooking"/>
-	<feature automatic="selected" manual="selected" name="Suscriptions"/>
+	<feature automatic="unselected" name="BookClass"/>
+	<feature manual="selected" name="ManageBooking"/>
+	<feature automatic="selected" name="Suscriptions"/>
 	<feature manual="selected" name="ManageSuscription"/>
 	<feature automatic="selected" name="SuscribePlan"/>
 	<feature manual="selected" name="MonthPlan"/>
 	<feature manual="selected" name="YearPlan"/>
-	<feature name="QuarterPlan"/>
+	<feature manual="selected" name="QuarterPlan"/>
 	<feature automatic="selected" manual="selected" name="Training"/>
 	<feature manual="selected" name="RoutineTracking"/>
 	<feature manual="selected" name="CreateRoutines"/>

@@ -46,7 +46,6 @@ export class UpdateRoutineComponent implements OnInit {
 
 	setImage(image: string): void {
 		this.formGroup.controls.image.setValue(image);
-		console.log(this.formGroup.getRawValue());
 	}
 
 	private request(): Routine {
