@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit {
 					path: 'booking',
 					name: 'Reservar Clase',
 					icon: 'book'
-				}
+				},
+				{ path: 'booking/manage', name: 'Listado de Clases', icon: 'widgets' },
 			]
 		}
 	];

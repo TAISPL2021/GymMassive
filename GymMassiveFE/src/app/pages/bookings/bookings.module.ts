@@ -18,9 +18,22 @@ import { BookClassComponent } from './book-class/book-class.component';
 import { ClassTableComponent } from './book-class/class-table/class-table.component';
 import { BookingRoutingModule } from './booking-routing.module';
 import { MyReservationsComponent } from './book-class/my-reservations/my-reservations.component';
+import { ManageBookingsComponent } from './manage-bookings/manage-bookings.component';
+import { ManageClassTableComponent } from './manage-bookings/manage-class-table/manage-class-table.component';
+import { CreateClassComponent } from './manage-bookings/create-class/create-class.component';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
 
 @NgModule({
-	declarations: [ BookClassComponent, ClassTableComponent, MyReservationsComponent ],
+	declarations: [
+		BookClassComponent,
+		ClassTableComponent,
+		MyReservationsComponent,
+		ManageBookingsComponent,
+		ManageClassTableComponent,
+		CreateClassComponent
+	],
 	imports: [
 		CommonModule,
 		BookingRoutingModule,
@@ -38,7 +51,13 @@ import { MyReservationsComponent } from './book-class/my-reservations/my-reserva
 		MatSnackBarModule,
 		MatSelectModule,
 		MatTableModule,
-		ReactiveFormsModule
-	]
+		NgxMatDatetimePickerModule,
+		NgxMatTimepickerModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+		ReactiveFormsModule,
+		NgxMatMomentModule 
+	],
+	providers: [ MatDatepickerModule ]
 })
 export class BookingsModule {}
