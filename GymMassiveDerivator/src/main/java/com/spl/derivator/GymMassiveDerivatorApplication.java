@@ -64,7 +64,6 @@ public class GymMassiveDerivatorApplication {
 				Node nNode = nList.item(temp);
 				NamedNodeMap nodeMap = nNode.getAttributes();
 				Node nameNode = nodeMap != null ? nodeMap.getNamedItem("name") : null;
-				//System.out.println(nameNode != null ? nameNode.getNodeValue() : "nameNode");
 
 				if (isMavenDependence(nodeMap, nameNode)) {
 					Node automatic = nodeMap.getNamedItem("automatic");
@@ -72,6 +71,9 @@ public class GymMassiveDerivatorApplication {
 
 					if (isSelected(automatic, manual)) {
 						addDependency(nameNode.getNodeValue());
+						System.out.println("---------------------------");
+						System.out.println("Agregando Dependencia Maven");
+						System.out.println(nameNode.getNodeValue());
 					}
 				}
 
@@ -81,8 +83,14 @@ public class GymMassiveDerivatorApplication {
 
 					if (isSelected(automatic, manual)) {
 						addProperty(nameNode.getNodeValue(),"true");
+						System.out.println("---------------------------");
+						System.out.println("Agregando Propiedad");
+						System.out.println(nameNode.getNodeValue()+": true");
 					}else {
 						addProperty(nameNode.getNodeValue(),"false");
+						System.out.println("---------------------------");
+						System.out.println("Agregando Propiedad");
+						System.out.println(nameNode.getNodeValue()+": false");
 					}
 				}
 			}
