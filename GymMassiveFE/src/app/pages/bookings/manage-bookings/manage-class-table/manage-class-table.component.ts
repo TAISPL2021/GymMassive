@@ -62,6 +62,21 @@ export class ManageClassTableComponent implements OnInit {
 		});
 	}
 
+	deleteClass(clas: Class): void{
+		const action: BookingRequest = {
+			action: 'Delete',
+			clas,
+			userId: sessionStorage.getItem('userId'),
+			userEmail: sessionStorage.getItem('email')
+		};
+		this.classService.actionService(action).subscribe((res) => {
+			if (res) {
+				this.openSnackBar('Clase Reservada Exitosamente!');
+				this.getClasses();
+			}
+		});
+	}
+
 	openSnackBar(message: string): void {
 		this._snackBar.open(message, 'X', {
 			horizontalPosition: 'end',
