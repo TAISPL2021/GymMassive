@@ -7,8 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BookingRequest } from 'src/app/models/BookingRequest';
 import { Class } from 'src/app/models/Class';
 import { ClassService } from 'src/app/services/class.service';
-import { MyReservationsComponent } from '../../book-class/my-reservations/my-reservations.component';
 import { CreateClassComponent } from '../create-class/create-class.component';
+import { UpdateClassComponent } from '../update-class/update-class.component';
 
 @Component({
 	selector: 'app-manage-class-table',
@@ -47,22 +47,18 @@ export class ManageClassTableComponent implements OnInit {
 		});
 	}
 
-	bookClass(clas: Class): void {
-		const action: BookingRequest = {
-			action: 'AsociateUser',
-			clas,
-			userId: sessionStorage.getItem('userId'),
-			userEmail: sessionStorage.getItem('email')
-		};
-		this.classService.actionService(action).subscribe((res) => {
-			if (res) {
-				this.openSnackBar('Clase Reservada Exitosamente!');
+	updateClass(clas: Class) {
+		const dialogRef = this.dialog.open(UpdateClassComponent, { data: { ...clas } });
+
+		dialogRef.afterClosed().subscribe((result) => {
+			this.classService.actionService(result).subscribe((res) => {
+				this.openSnackBar('Clase actualizada correctamente!');
 				this.getClasses();
-			}
+			});
 		});
 	}
 
-	deleteClass(clas: Class): void{
+	deleteClass(clas: Class): void {
 		const action: BookingRequest = {
 			action: 'Delete',
 			clas,

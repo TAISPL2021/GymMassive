@@ -24,6 +24,7 @@ import { CreateClassComponent } from './manage-bookings/create-class/create-clas
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { UpdateClassComponent } from './manage-bookings/update-class/update-class.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
 		MyReservationsComponent,
 		ManageBookingsComponent,
 		ManageClassTableComponent,
-		CreateClassComponent
+		CreateClassComponent,
+  UpdateClassComponent
 	],
 	imports: [
 		CommonModule,
